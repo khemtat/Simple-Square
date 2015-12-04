@@ -9,5 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Places : NSObject
-
+- (void)loadData:(id)sender;
+- (NSArray *)getPlaceList;
+- (id)initWithDefaultData;
++(id)defaultData;
 @end
