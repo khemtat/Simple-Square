@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JSONModel/JSONModel.h>
 
 @interface Venue : JSONModel
+
+@property (strong, nonatomic) NSString* id;
+@property (strong, nonatomic) NSString* name;
 
 @end

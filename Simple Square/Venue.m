@@ -10,6 +10,6 @@
 
 @implementation Venue
 
-@property ()
+
 
 @end

@@ -20,6 +20,11 @@
 		6824E0DB1C0F523D00C5C901 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6824E0DA1C0F523D00C5C901 /* MapKit.framework */; };
 		6824E0DD1C0F524F00C5C901 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6824E0DC1C0F524F00C5C901 /* CoreLocation.framework */; };
 		68646B4E1C0F6D2A00AD98FE /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 68646B4D1C0F6D2A00AD98FE /* Place.m */; };
+		68F6EE881C13997F0015E907 /* Icon.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F6EE871C13997F0015E907 /* Icon.m */; };
+		68F6EE8B1C139A620015E907 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F6EE8A1C139A620015E907 /* Categories.m */; };
+		68F6EE8E1C139AC80015E907 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F6EE8D1C139AC80015E907 /* Location.m */; };
+		68F6EE911C139B590015E907 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F6EE901C139B590015E907 /* User.m */; };
+		68F6EE941C139B9A0015E907 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F6EE931C139B9A0015E907 /* Photo.m */; };
 		68FF901A1C1380480021AAC4 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FF90191C1380480021AAC4 /* Venue.m */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +50,16 @@
 		6824E0DC1C0F524F00C5C901 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		68646B4C1C0F6D2A00AD98FE /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Place.h; path = model/Place.h; sourceTree = "<group>"; };
 		68646B4D1C0F6D2A00AD98FE /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Place.m; path = model/Place.m; sourceTree = "<group>"; };
+		68F6EE861C13997F0015E907 /* Icon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Icon.h; sourceTree = "<group>"; };
+		68F6EE871C13997F0015E907 /* Icon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Icon.m; sourceTree = "<group>"; };
+		68F6EE891C139A620015E907 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
+		68F6EE8A1C139A620015E907 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
+		68F6EE8C1C139AC80015E907 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		68F6EE8D1C139AC80015E907 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		68F6EE8F1C139B590015E907 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		68F6EE901C139B590015E907 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		68F6EE921C139B9A0015E907 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		68F6EE931C139B9A0015E907 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		68FF90181C1380480021AAC4 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
 		68FF90191C1380480021AAC4 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
 		75ED37F17CA4CCE1496ECE58 /* Pods-Simple Square.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Square.release.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Square/Pods-Simple Square.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +154,16 @@
 				3F0D66111C0FEAEA008B5641 /* Places.m */,
 				68FF90181C1380480021AAC4 /* Venue.h */,
 				68FF90191C1380480021AAC4 /* Venue.m */,
+				68F6EE861C13997F0015E907 /* Icon.h */,
+				68F6EE871C13997F0015E907 /* Icon.m */,
+				68F6EE891C139A620015E907 /* Categories.h */,
+				68F6EE8A1C139A620015E907 /* Categories.m */,
+				68F6EE8C1C139AC80015E907 /* Location.h */,
+				68F6EE8D1C139AC80015E907 /* Location.m */,
+				68F6EE8F1C139B590015E907 /* User.h */,
+				68F6EE901C139B590015E907 /* User.m */,
+				68F6EE921C139B9A0015E907 /* Photo.h */,
+				68F6EE931C139B9A0015E907 /* Photo.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -276,9 +301,14 @@
 			files = (
 				3F0D66121C0FEAEA008B5641 /* Places.m in Sources */,
 				6824E0CB1C0F520B00C5C901 /* ViewController.m in Sources */,
+				68F6EE881C13997F0015E907 /* Icon.m in Sources */,
+				68F6EE8B1C139A620015E907 /* Categories.m in Sources */,
+				68F6EE941C139B9A0015E907 /* Photo.m in Sources */,
+				68F6EE8E1C139AC80015E907 /* Location.m in Sources */,
 				3F0D660F1C0FE668008B5641 /* PlaceTableView.m in Sources */,
 				6824E0C81C0F520B00C5C901 /* AppDelegate.m in Sources */,
 				3F0D660B1C0FE5FC008B5641 /* MapViewController.m in Sources */,
+				68F6EE911C139B590015E907 /* User.m in Sources */,
 				68FF901A1C1380480021AAC4 /* Venue.m in Sources */,
 				6824E0C51C0F520B00C5C901 /* main.m in Sources */,
 				68646B4E1C0F6D2A00AD98FE /* Place.m in Sources */,

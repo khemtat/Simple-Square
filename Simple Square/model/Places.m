@@ -8,12 +8,13 @@
 
 #import "Places.h"
 #import "Place.h"
+#import <Foundation/Foundation.h>
 #import <AFNetworking.h>
 
 const static NSString *clientID = @"KTNUKEWM0BIWR3LFJ1DM150OFZ4ZBP0WYCFFJC2EOVH0QNL2";
 const static NSString *clientSecret = @"X00LW15CHQKBSLNJGGQ4XFHQ24CK0VMZW5TZ5EQYEMDFVG4M";
 const static NSString *APIRequestVersion = @"20151203";
-const static NSString *query = @"coffee";
+const static NSString *section = @"food";
 
 @implementation Places {
     NSArray* placeList;
@@ -48,7 +49,7 @@ const static NSString *query = @"coffee";
                                         @"client_id":clientID,
                                         @"client_secret":clientSecret,
                                         @"v":APIRequestVersion,
-                                        @"query":query,
+                                        @"section":section,
                                         @"ll":@"13.746220,100.530704",
                                         @"venuePhotos":@"1"
                                         };

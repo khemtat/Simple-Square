@@ -10,6 +10,7 @@
 #import "AFNetworking.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <Foundation/Foundation.h>
 #import "Place.h"
 #import "Places.h"
 
