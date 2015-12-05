@@ -20,6 +20,7 @@
 		6824E0DB1C0F523D00C5C901 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6824E0DA1C0F523D00C5C901 /* MapKit.framework */; };
 		6824E0DD1C0F524F00C5C901 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6824E0DC1C0F524F00C5C901 /* CoreLocation.framework */; };
 		68646B4E1C0F6D2A00AD98FE /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 68646B4D1C0F6D2A00AD98FE /* Place.m */; };
+		68FF901A1C1380480021AAC4 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FF90191C1380480021AAC4 /* Venue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		6824E0DC1C0F524F00C5C901 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		68646B4C1C0F6D2A00AD98FE /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Place.h; path = model/Place.h; sourceTree = "<group>"; };
 		68646B4D1C0F6D2A00AD98FE /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Place.m; path = model/Place.m; sourceTree = "<group>"; };
+		68FF90181C1380480021AAC4 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
+		68FF90191C1380480021AAC4 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
 		75ED37F17CA4CCE1496ECE58 /* Pods-Simple Square.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Square.release.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Square/Pods-Simple Square.release.xcconfig"; sourceTree = "<group>"; };
 		F96387D3498318957DDDAFB6 /* Pods-Simple Square.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Square.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Square/Pods-Simple Square.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +137,8 @@
 				68646B4D1C0F6D2A00AD98FE /* Place.m */,
 				3F0D66101C0FEAEA008B5641 /* Places.h */,
 				3F0D66111C0FEAEA008B5641 /* Places.m */,
+				68FF90181C1380480021AAC4 /* Venue.h */,
+				68FF90191C1380480021AAC4 /* Venue.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				3F0D660F1C0FE668008B5641 /* PlaceTableView.m in Sources */,
 				6824E0C81C0F520B00C5C901 /* AppDelegate.m in Sources */,
 				3F0D660B1C0FE5FC008B5641 /* MapViewController.m in Sources */,
+				68FF901A1C1380480021AAC4 /* Venue.m in Sources */,
 				6824E0C51C0F520B00C5C901 /* main.m in Sources */,
 				68646B4E1C0F6D2A00AD98FE /* Place.m in Sources */,
 			);

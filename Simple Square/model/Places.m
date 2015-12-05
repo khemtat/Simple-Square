@@ -38,7 +38,7 @@ const static NSString *query = @"coffee";
 
 - (void)sendRequestPlacesData:(id)sender {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        // My API (GET https://api.foursquare.com/v2/venues/search)
+        // My API (GET https://api.foursquare.com/v2/venues/explore)
         
         // Create manager
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -50,9 +50,10 @@ const static NSString *query = @"coffee";
                                         @"v":APIRequestVersion,
                                         @"query":query,
                                         @"ll":@"13.746220,100.530704",
+                                        @"venuePhotos":@"1"
                                         };
         
-        NSMutableURLRequest* request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:@"https://api.foursquare.com/v2/venues/search" parameters:URLParameters error:NULL];
+        NSMutableURLRequest* request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:@"https://api.foursquare.com/v2/venues/explore" parameters:URLParameters error:NULL];
 
         // Fetch Request
         AFHTTPRequestOperation *operation = [manager
@@ -72,7 +73,7 @@ const static NSString *query = @"coffee";
     NSDictionary* dictionary = [[NSDictionary alloc] initWithDictionary:responseObject];
     NSArray* tempArray = [[NSArray alloc] initWithObjects:dictionary[@"response"], nil];
     NSDictionary* tempDict = [[NSDictionary alloc] initWithDictionary:tempArray[0]];
-    NSArray* tmp = [[NSArray alloc] initWithObjects:tempDict[@"venues"], nil];
+    NSArray* tmp = [[NSArray alloc] initWithObjects:tempDict[@"groups"], nil];
     NSArray* json = [[NSArray alloc] initWithArray:tmp[0]];
     json != nil ? NSLog(@"✅ Parsed json successfully"):NSLog(@"⁉️ error can't load json");
     [self parseJSONToPlacesArray:json];
