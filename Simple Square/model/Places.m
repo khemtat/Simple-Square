@@ -17,6 +17,7 @@ const static NSString *query = @"coffee";
 
 @implementation Places {
     NSArray* placeList;
+    Place* place;
 }
 
 + (id)defaultData {
