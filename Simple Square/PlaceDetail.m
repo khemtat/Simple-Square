@@ -6,27 +6,26 @@
 //  Copyright © 2558 404 App not found. All rights reserved.
 //
 
-#import "Venue.h"
-#import "Location.h"
+#import "PlaceDetail.h"
+#import "LocationDetail.h"
 #import "Photo.h"
 #import "Categories.h"
 
-static const NSString* kID = @"id";
-static const NSString* kVenueName = @"name";
-static const NSString* kLocation = @"location";
-static const NSString* kCategories = @"categoriess";
+static const NSString* kLocationDetail = @"location";
+static const NSString* kCategories = @"categories";
 static const NSString* kPhoto = @"photos";
+static const NSString* kVenue = @"venue";
 
-@implementation Venue
+@implementation PlaceDetail
 
--(id)initVenueWithDictionary:(NSDictionary *) dict{
+-(id)initDetailWithDictionary:(NSDictionary *) dict{
     self = [super init];
     if (self) {
-        _id = dict[kID];
-        _name = dict[kVenueName];
-        _location = [[Location alloc] initWithLocation:dict[kLocation]];
-        _categories = [[Categories alloc] initWithCategories:dict[kCategories]];
-        _photos = [[Photo alloc] initWithPhoto:dict[kPhoto]];
+        _venue = dict[kVenue];
+        //NSLog(@"I'm a Bug %@",self.venue);
+        _location = [[LocationDetail alloc] initLocationDetailWithDictionary:self.venue[kLocationDetail]];
+        _categories = [[Categories alloc] initWithCategories:self.venue[kCategories]];
+        _photos = [[Photo alloc] initWithPhoto:self.venue[kPhoto]];
     }
     return self;
 }

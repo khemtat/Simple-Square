@@ -8,6 +8,18 @@
 
 #import "Icon.h"
 
+static const NSString* kIconPrefix = @"prefix";
+static const NSString* kIconSuffix = @"suffix";
+
 @implementation Icon
+
+-(id)initWithIcon:(NSDictionary *)dict{
+    self = [super init];
+    if (self) {
+        _prefix = dict[kIconPrefix];
+        _suffix = dict[kIconSuffix];
+    }
+    return  self;
+}
 
 @end

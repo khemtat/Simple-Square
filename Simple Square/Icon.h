@@ -14,4 +14,6 @@
 @property (strong, nonatomic) NSString* prefix;
 @property (strong, nonatomic) NSString* suffix;
 
+-(id)initWithIcon:(NSDictionary *) dict;
+
 @end

@@ -9,25 +9,14 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MapViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="rFH-na-TU0"/>
-                        <viewControllerLayoutGuide type="bottom" id="1mH-jc-06n"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="yiQ-Ce-dYX">
+                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="Aa6-cg-H6Q">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6yX-0o-tL1">
-                                <rect key="frame" x="0.0" y="66" width="600" height="534"/>
-                                <animations/>
-                            </mapView>
-                        </subviews>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                    </mapView>
                     <navigationItem key="navigationItem" title="Locations" id="EbF-1D-MJH"/>
                     <connections>
-                        <outlet property="mapView" destination="6yX-0o-tL1" id="XlZ-NW-4eo"/>
+                        <outlet property="mapView" destination="Aa6-cg-H6Q" id="N6o-3K-Tkj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

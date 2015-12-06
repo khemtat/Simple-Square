@@ -30,7 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self prepareForSetup];
+    [self setupModel];
     [self locationManagerSetup];
     [self setupMapView];
 }
@@ -40,7 +40,7 @@
 }
 
 
-- (void)prepareForSetup {
+- (void)setupModel {
     places = [Places defaultData];
     NSArray *temp = [[NSArray alloc] initWithArray:places.getPlaceList];
     NSLog(@"💢 places class counting placeList: %ld",temp.count);
@@ -82,11 +82,9 @@
     currentLocation = locations[0];
     double latitude = currentLocation.coordinate.latitude;
     double longitude = currentLocation.coordinate.longitude;
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude, longitude);
-    Place *place = [[Place alloc] initWithCoordinate:coordinate andTitle:@"Home"];
-    [self.mapView addAnnotation:place];
     [locationManager stopUpdatingLocation];
     locationManager = nil;
+    self.mapView.showsUserLocation = YES;
     NSLog(@"🔰 Current latitude: %f and longitude: %f",latitude,longitude);
 }
 
@@ -94,13 +92,39 @@
 
 - (void)setupMapView {
     self.mapView.delegate = self;
-    [self.mapView addAnnotations:places.getPlaceList];
+    //Testing add annotations
+    Place *place1 = [[Place alloc] initWithCoordinate:CLLocationCoordinate2DMake(13.845766, 100.840859) andTitle:@"71/271"];
+    Place *place2 = [[Place alloc] initWithCoordinate:CLLocationCoordinate2DMake(13.831599, 100.849828) andTitle:@"ศูนย์ฝึกอบรม"];
+    Place *place3 = [[Place alloc] initWithCoordinate:CLLocationCoordinate2DMake(13.820008, 100.844289) andTitle:@"OtheBankky"];
+//    Place *place4 = [[Place alloc] initWithCoordinate:CLLocationCoordinate2DMake(13.834016, 100.865964) andTitle:@"Clevz"];
+    NSArray *list = @[place1,place2,place3];
+    [self.mapView addAnnotations:list];
+    //Finished add annotations
+    [self mapViewEnclosedAnnotationsIncludeUserLocation];
     NSLog(@"Ⓜ️ Add annotations successfully!!");
 }
 
+- (void)mapViewEnclosedAnnotationsIncludeUserLocation {
+//    MKMapPoint userCurrentAnnotationPoint = MKMapPointForCoordinate(currentLocation.coordinate);
+    MKMapRect zoomRect = MKMapRectNull;
+    for (id <MKAnnotation> annotation in self.mapView.annotations) {
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+        if (MKMapRectIsNull(zoomRect)) {
+//            pointRect = MKMapRectMake(userCurrentAnnotationPoint.x, userCurrentAnnotationPoint.y, 0.1, 0.1);
+            zoomRect = pointRect;
+        } else {
+            zoomRect = MKMapRectUnion(zoomRect, pointRect);
+        }
+    }
+    [self.mapView setVisibleMapRect:zoomRect edgePadding:UIEdgeInsetsMake(85, 10, 10, 10) animated:YES];
+}
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    if (annotation == mapView.userLocation)
+        return nil;
     MKPinAnnotationView *view = (MKPinAnnotationView* )[self.mapView
-                                                        dequeueReusableAnnotationViewWithIdentifier:@"pin"];
+                                dequeueReusableAnnotationViewWithIdentifier:@"pin"];
     if (view == nil) {
         view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"];
         view.canShowCallout = YES;

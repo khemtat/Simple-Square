@@ -9,11 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "PlaceDetail.h"
 
 @interface Place : NSObject <MKAnnotation>
 
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *subtitle;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+@property (nonatomic, readonly) PlaceDetail* placeDetail;
+@property (nonatomic, readonly) NSDictionary* venue;
+@property (nonatomic, readonly) NSDictionary* location;
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate andTitle:(NSString* )title;
 - (id)initWithDictionary:(NSDictionary *)dict;

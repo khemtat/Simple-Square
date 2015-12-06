@@ -11,11 +11,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-static const NSString *kTitle = @"name";
-static const NSString *kLocation = @"location";
-static const NSString *kLatitude = @"lat";
-static const NSString *kLongitude = @"lng";
-
+static  NSString const *kTitle = @"name";
+static  NSString const *kLocation = @"location";
+static  NSString const *kLatitude = @"lat";
+static  NSString const *kLongitude = @"lng";
+static  NSString const *kPlaceDetail = @"placeDetail";
+static  NSString const *kVenue = @"venue";
 
 @implementation Place
 
@@ -31,15 +32,17 @@ static const NSString *kLongitude = @"lng";
 - (id)initWithDictionary:(NSDictionary *)dict{
     self = [super init];
     if (self) {
-        self.title = dict[kTitle];
-        _coordinate = [self getLatitudeAndLongitude:dict[kLocation]];
-    }
+        _venue = dict[kVenue];
+        self.title = self.venue[kTitle];
+        _location = self.venue[kLocation];
+        _coordinate = [self getLatitudeAndLongitude:self.location];
+        _placeDetail = [[PlaceDetail alloc] initDetailWithDictionary:dict];    };
     return self;
 }
 
 - (CLLocationCoordinate2D)getLatitudeAndLongitude:(NSDictionary *)dict {
-    double lat = dict[kLatitude] != nil;
-    double lng = dict[kLongitude] != nil;
+    double lat = [dict[kLatitude] doubleValue];
+    double lng = [dict[kLongitude] doubleValue];
     return CLLocationCoordinate2DMake(lat,lng);
 }
 

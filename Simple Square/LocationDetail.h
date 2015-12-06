@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <JSONModel/JSONModel.h>
 
-@interface Location : JSONModel
+@interface LocationDetail : JSONModel
 
 @property (assign, nonatomic) long distance;
 @property (readonly, nonatomic) NSString* crossStreet;
@@ -17,6 +17,6 @@
 @property (readonly, nonatomic) NSString* state;
 @property (readonly, nonatomic) NSString* country;
 
-- (id)initWithLocation:(NSDictionary *)location;
+- (id)initLocationDetailWithDictionary:(NSDictionary *) dict;
 
 @end

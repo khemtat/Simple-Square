@@ -12,7 +12,10 @@
 
 @interface Categories : JSONModel
 
-@property (strong, nonatomic) NSString* name;
-@property (strong, nonatomic) Icon* icon;
+@property (readonly, nonatomic) NSString* name;
+@property (readonly, nonatomic) Icon *icon;
+@property (readonly, nonatomic) NSDictionary* categories;
+
+-(id)initWithCategories:(NSDictionary *) dict;
 
 @end

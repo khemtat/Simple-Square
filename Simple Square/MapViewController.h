@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Place.h"
 
 @interface MapViewController : UIViewController
-
 @end
