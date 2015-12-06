@@ -9,8 +9,6 @@
 #import "Location.h"
 #import <Foundation/Foundation.h>
 
-static const NSString* klat = @"lat";
-static const NSString* klng = @"lng";
 static const NSString* kdistance = @"distance";
 static const NSString* kcrossStreet = @"crossStreet";
 static const NSString* kcity = @"city";
@@ -19,16 +17,16 @@ static const NSString* kcountry = @"country";
 
 @implementation Location
 
--(id)initWithLocation:(NSDictionary *)location{
+- (id)initWithLocation:(NSDictionary *)location{
     self = [super init];
     if(self){
-        self.lat = location[klat];
-        self.lng = location[klng];
-        self.distance = location[kdistance];
-        self.crossStreet = location[kcrossStreet];
-        self.city = location[kcity];
-        self.state = location[kstate];
-        self.country = location[kcountry];
+        //NSLog(@"from Location lat is %@" ,location[klat]);
+        //NSLog(@"from Location lng is %@" ,location[klng]);
+        self.distance = [location[kdistance] integerValue];
+        _crossStreet = location[kcrossStreet];
+        _city = location[kcity];
+        _state = location[kstate];
+        _country = location[kcountry];
     }
     
     return self;
