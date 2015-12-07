@@ -49,8 +49,9 @@ const static NSString *section = @"food";
                                         @"client_secret":clientSecret,
                                         @"v":APIRequestVersion,
                                         @"section":section,
-                                        @"ll":llParameter,
-                                        @"venuePhotos":@"1"
+                                        @"ll":@"13.731008,100.781229",
+                                        @"venuePhotos":@"1",
+                                        @"sortByDistance":@"1",
                                         };
     
         NSMutableURLRequest* request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:@"https://api.foursquare.com/v2/venues/explore" parameters:URLParameters error:NULL];
@@ -88,6 +89,8 @@ const static NSString *section = @"food";
         [tempArray addObject:[[Place alloc] initWithDictionary:dict]];
     }
     placeList = [[NSArray alloc] initWithArray:tempArray];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"foursquareDataLoadedNotification"
+                                                        object:nil];
     NSLog(@"✅ Parsed json to places array successfully!!");
 }
 

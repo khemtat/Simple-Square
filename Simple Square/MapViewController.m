@@ -30,7 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self locationManagerSetup];
-    [self setupMapView];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(setupMapView)
+                                                 name:@"foursquareDataLoadedNotification"
+                                               object:nil];
 }
 
 #pragma mark - Location Manager
@@ -81,15 +84,11 @@
 #pragma mark - Map View configure
 
 
-- (void)setupMapView {
-    double delayInSeconds = 3.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        NSLog(@"⚠️ [places count] from MapViewController: %ld",[places count]);
-        [self.mapView addAnnotations:[places getPlaceList]];
-        [self mapViewEnclosedAnnotationsIncludeUserLocation];
-        NSLog(@"Ⓜ️ Add annotations successfully!!");
-    });
+- (void)setupMapView{
+    NSLog(@"⚠️ [places count] from MapViewController: %ld",[places count]);
+    [self.mapView addAnnotations:[places getPlaceList]];
+    [self mapViewEnclosedAnnotationsIncludeUserLocation];
+    NSLog(@"Ⓜ️ Add annotations successfully!!");
 }
 
 - (void)mapViewEnclosedAnnotationsIncludeUserLocation {
