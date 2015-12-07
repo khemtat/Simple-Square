@@ -11,22 +11,29 @@
 static NSString* const kPrefix = @"prefix";
 static NSString* const kSuffix = @"suffix";
 static NSString* const kImage = @"image";
-static NSString* const kPhoto = @"photo";
 static NSString* const kGroups = @"groups";
 static NSString* const kItems = @"items";
-static NSString* const kUser = @"user";
+
 
 @implementation Photo
 
--(id)initWithPhoto:(NSDictionary *) dict{
+-(id)initPhotoWithDictionary:(NSDictionary *) dict{
     self = [super init];
     if (self) {
+//        _groups = dict[kGroups];
+//        _groupItems = self.groups[0];
+//        _items = self.groupItems[kItems];
+//        _itemOfItems = self.items[0];
+//        _prefix = self.itemOfItems[kPrefix];
+//        _suffix = self.itemOfItems[kSuffix];
+//        _image = [[self.prefix stringByAppendingString:@"original"] stringByAppendingString:self.suffix];
+        
         //NSLog(@"Bug from Photo %@", dict);
         //_groups = dict[kGroups];
         //_items = self.groups[0];
-       // NSLog(@"%@", self.items);
+        //NSLog(@"Item Bug %@", self.items);
         //_prefix = [self.items[kPrefix]];
-       //NSLog(@"%@", self.prefix);
+        //NSLog(@"Image From Photo %@", self.image);
     }
     return  self;
 }

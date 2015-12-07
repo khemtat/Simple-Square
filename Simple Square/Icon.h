@@ -11,9 +11,10 @@
 
 @interface Icon : JSONModel
 
-@property (strong, nonatomic) NSString* prefix;
-@property (strong, nonatomic) NSString* suffix;
+@property (readonly, nonatomic) NSString* prefix;
+@property (readonly, nonatomic) NSString* suffix;
+@property (readonly, nonatomic) NSString* icon;
 
--(id)initWithIcon:(NSDictionary *) dict;
+-(id)initIconWithDictionary:(NSDictionary *) dict;
 
 @end

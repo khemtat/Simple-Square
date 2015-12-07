@@ -7,10 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Place.h"
 
 @interface Places : NSObject
-- (void)loadData:(id)sender;
-- (NSArray *)getPlaceList;
-- (id)initWithDefaultData;
-+(id)defaultData;
+
+@property (strong,nonatomic) NSString *currentLocation;
+@property (readonly) NSUInteger count;
+
++ (id)defaultDataWithCurrentLocation:(NSString *)location;
+- (Place *) placeAtIndex:(NSUInteger)index;
+- (NSArray *) getPlaceList;
+
 @end

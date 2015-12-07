@@ -7,7 +7,6 @@
 //
 
 #import "Place.h"
-#import <AFNetworking.h>
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
@@ -34,6 +33,7 @@ static  NSString const *kVenue = @"venue";
     if (self) {
         _venue = dict[kVenue];
         self.title = self.venue[kTitle];
+        //NSLog(@"%@", self.title);
         _location = self.venue[kLocation];
         _coordinate = [self getLatitudeAndLongitude:self.location];
         _placeDetail = [[PlaceDetail alloc] initDetailWithDictionary:dict];    };

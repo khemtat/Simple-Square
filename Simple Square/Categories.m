@@ -15,11 +15,12 @@ static const NSString* kCategories = @"categories";
 @implementation Categories
 
 
--(id)initWithCategories:(NSDictionary *) dict{
+-(id)initCategoriesWithArray:(NSArray *) array{
     self = [super init];
     if (self) {
-        //_name = dict[kCategoryName];
-        //_icon = [[Icon alloc] initWithIcon:dict[kIcon]];
+        _categories = array[0];
+        _name = self.categories[kCategoryName];
+        _icon = [[Icon alloc] initIconWithDictionary:self.categories[kIcon]];
     }
     return  self;
 }

@@ -16,6 +16,6 @@
 @property (readonly, nonatomic) Icon *icon;
 @property (readonly, nonatomic) NSDictionary* categories;
 
--(id)initWithCategories:(NSDictionary *) dict;
+-(id)initCategoriesWithArray:(NSArray *) array;
 
 @end

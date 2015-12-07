@@ -13,14 +13,14 @@
 
 @property (readonly, nonatomic) NSString* prefix;
 @property (readonly, nonatomic) NSString* suffix;
-@property (readonly, nonatomic) NSDictionary* photo;
+@property (readonly, nonatomic) NSDictionary* groupItems;
 @property (readonly, nonatomic) NSString* image;
 @property (readonly, nonatomic) NSArray* groups;
-@property (readonly, nonatomic) NSDictionary* items;
-@property (readonly, nonatomic) NSArray* user;
+@property (readonly, nonatomic) NSArray* items;
+@property (readonly, nonatomic) NSDictionary* itemOfItems;
 
 
--(id)initWithPhoto:(NSDictionary *) dict;
+-(id)initPhotoWithDictionary:(NSDictionary *) dict;
 
 @end
 

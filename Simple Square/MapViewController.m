@@ -7,12 +7,11 @@
 //
 
 #import "MapViewController.h"
-#import "AFNetworking.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <Foundation/Foundation.h>
-#import "Place.h"
 #import "Places.h"
+#import "Place.h"
 
 @interface MapViewController ()
 <MKMapViewDelegate, CLLocationManagerDelegate, UIAlertViewDelegate>
@@ -30,20 +29,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupModel];
     [self locationManagerSetup];
-    [self setupMapView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-
-- (void)setupModel {
-    places = [Places defaultData];
-    NSArray *temp = [[NSArray alloc] initWithArray:places.getPlaceList];
-    NSLog(@"💢 places class counting placeList: %ld",temp.count);
 }
 
 #pragma mark - Location Manager
@@ -76,12 +66,17 @@
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [locationManager requestWhenInUseAuthorization];
     [locationManager startUpdatingLocation];
+
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     currentLocation = locations[0];
     double latitude = currentLocation.coordinate.latitude;
     double longitude = currentLocation.coordinate.longitude;
+    
+    NSString* coordinateString = [NSString stringWithFormat:@"%f,%f",latitude,longitude];
+    places = [Places defaultDataWithCurrentLocation:coordinateString];
+    NSLog(@"❓ Places instance in MapViewController: %@",places);
     [locationManager stopUpdatingLocation];
     locationManager = nil;
     self.mapView.showsUserLocation = YES;
@@ -90,18 +85,23 @@
 
 #pragma mark - Map View configure
 
+
 - (void)setupMapView {
-    self.mapView.delegate = self;
-    //Testing add annotations
-    Place *place1 = [[Place alloc] initWithCoordinate:CLLocationCoordinate2DMake(13.845766, 100.840859) andTitle:@"71/271"];
-    Place *place2 = [[Place alloc] initWithCoordinate:CLLocationCoordinate2DMake(13.831599, 100.849828) andTitle:@"ศูนย์ฝึกอบรม"];
-    Place *place3 = [[Place alloc] initWithCoordinate:CLLocationCoordinate2DMake(13.820008, 100.844289) andTitle:@"OtheBankky"];
+
+//    Place *place1 = [[Place alloc] initWithCoordinate:CLLocationCoordinate2DMake(13.845766, 100.840859) andTitle:@"71/271"];
+//    Place *place2 = [[Place alloc] initWithCoordinate:CLLocationCoordinate2DMake(13.831599, 100.849828) andTitle:@"ศูนย์ฝึกอบรม"];
+//    Place *place3 = [[Place alloc] initWithCoordinate:CLLocationCoordinate2DMake(13.820008, 100.844289) andTitle:@"OtheBankky"];
 //    Place *place4 = [[Place alloc] initWithCoordinate:CLLocationCoordinate2DMake(13.834016, 100.865964) andTitle:@"Clevz"];
-    NSArray *list = @[place1,place2,place3];
-    [self.mapView addAnnotations:list];
-    //Finished add annotations
+//    NSArray *list = @[place1,place2,place3,place4];
+//    [self.mapView addAnnotations:list];
+    
+    double delayInSeconds = 3.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        NSLog(@"⚠️ [places count] from MapViewController: %ld",[places count]);
+    });
     [self mapViewEnclosedAnnotationsIncludeUserLocation];
-    NSLog(@"Ⓜ️ Add annotations successfully!!");
+//    NSLog(@"Ⓜ️ Add annotations successfully!!");
 }
 
 - (void)mapViewEnclosedAnnotationsIncludeUserLocation {

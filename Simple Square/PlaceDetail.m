@@ -24,8 +24,11 @@ static const NSString* kVenue = @"venue";
         _venue = dict[kVenue];
         //NSLog(@"I'm a Bug %@",self.venue);
         _location = [[LocationDetail alloc] initLocationDetailWithDictionary:self.venue[kLocationDetail]];
-        _categories = [[Categories alloc] initWithCategories:self.venue[kCategories]];
-        _photos = [[Photo alloc] initWithPhoto:self.venue[kPhoto]];
+        _categories = [[Categories alloc] initCategoriesWithArray:self.venue[kCategories]];
+        if (![self.venue[kPhoto] isEqual:nil]) {
+            _photos = [[Photo alloc] initPhotoWithDictionary:self.venue[kPhoto]];
+        }
+        
     }
     return self;
 }

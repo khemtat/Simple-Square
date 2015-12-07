@@ -13,11 +13,13 @@ static const NSString* kIconSuffix = @"suffix";
 
 @implementation Icon
 
--(id)initWithIcon:(NSDictionary *)dict{
+-(id)initIconWithDictionary:(NSDictionary *)dict{
     self = [super init];
     if (self) {
         _prefix = dict[kIconPrefix];
         _suffix = dict[kIconSuffix];
+        _icon = [[self.prefix stringByAppendingString:@"32"] stringByAppendingString:self.suffix];
+//        NSLog(@"%@",self.icon);
     }
     return  self;
 }

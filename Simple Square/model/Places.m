@@ -22,56 +22,52 @@ const static NSString *section = @"food";
     Place* place;
 }
 
-+ (id)defaultData {
-    return [[[self class] alloc] initWithDefaultData];
++ (id)defaultDataWithCurrentLocation:(NSString *)location {
+    return [[[self class] alloc] initWithDefaultData:location];
 }
 
-- (id)initWithDefaultData {
+- (id)initWithDefaultData:location {
     self = [super init];
     if (self) {
-        [self loadData:self];
+        self.currentLocation = location;
+        [self sendRequestPlacesData:self];
+        NSLog(@"❓ Places instance in Places header: %@",self);
     }
     return self;
 }
 
-- (void)loadData:(id)sender {
-    [self sendRequestPlacesData:sender];
-}
-
 - (void)sendRequestPlacesData:(id)sender {
         // My API (GET https://api.foursquare.com/v2/venues/explore)
-        
+    
         // Create manager
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        
+    
         // Create request
         NSDictionary* URLParameters = @{
                                         @"client_id":clientID,
                                         @"client_secret":clientSecret,
                                         @"v":APIRequestVersion,
                                         @"section":section,
-                                        @"ll":@"13.746220,100.530704",
+                                        @"ll":self.currentLocation,
                                         @"venuePhotos":@"1"
                                         };
-        
+    
         NSMutableURLRequest* request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:@"https://api.foursquare.com/v2/venues/explore" parameters:URLParameters error:NULL];
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
             // Fetch Request
             AFHTTPRequestOperation *operation = [manager
                                                  HTTPRequestOperationWithRequest:request
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                      NSLog(@"✅ HTTP Response Status Code: %ld", [operation.response statusCode]);
-                                                     [self parseJSON:responseObject];
+                                                     [self parsedToJson:responseObject];
                                                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                      NSLog(@"⁉️ HTTP Request failed: %@", error);
                                                  }];
             [manager.operationQueue addOperation:operation];
             NSLog(@"✅ Send request places data successfully!!");
-        });
 }
 
-- (void)parseJSON:(id)responseObject {
+- (void)parsedToJson:(id)responseObject {
     NSDictionary* dictionary = [[NSDictionary alloc] initWithDictionary:responseObject];
     NSArray* tempArray = [[NSArray alloc] initWithObjects:dictionary[@"response"], nil];
     dictionary = [[NSDictionary alloc] initWithDictionary:tempArray[0]];
@@ -79,24 +75,34 @@ const static NSString *section = @"food";
     NSArray* json = [[NSArray alloc] initWithArray:tempArray[0]];
     NSDictionary* itemDictionary = [[NSDictionary alloc] initWithDictionary:json[0]];
     NSArray* jsonItem = [[NSArray alloc] initWithObjects:itemDictionary[@"items"], nil];
-    NSArray* venue = [[NSArray alloc] initWithArray:jsonItem[0]];
-    venue != nil?NSLog(@"✅ Parsed json successfully "):NSLog(@"⁉️ error can't load json");
-    [self parseJSONToPlacesArray:venue];
+    NSArray* venues = [[NSArray alloc] initWithArray:jsonItem[0]];
+    venues != nil?NSLog(@"✅ Parsed json successfully "):NSLog(@"⁉️ Error can't parsed json");
+    [self parsedJsonToArray:venues];
 }
 
-- (void) parseJSONToPlacesArray:(NSArray *)venue{
-    NSMutableArray *tempArray = [NSMutableArray arrayWithCapacity:venue.count];
-    NSLog(@"✅ json.count = %ld", venue.count);
-    for (NSDictionary *dict in venue) {
+- (void)parsedJsonToArray:(NSArray *)venues{
+    NSMutableArray *tempArray = [[NSMutableArray alloc] initWithCapacity:venues.count];
+    NSLog(@"✅ json.count = %ld", venues.count);
+    for (NSDictionary *dict in venues) {
         [tempArray addObject:[[Place alloc] initWithDictionary:dict]];
     }
     placeList = [[NSArray alloc] initWithArray:tempArray];
-    NSLog(@"✅ Parsed;json to places array successfully!!");
+
+    MapViewController *viewController = [MapViewController alloc];
+    [viewController setupMapView];
+    NSLog(@"✅ Parsed json to places array successfully!!");
 }
 
-- (NSArray* )getPlaceList {
+
+- (Place *) placeAtIndex:(NSUInteger)index {
+    return [placeList objectAtIndex:index];
+}
+
+- (NSUInteger) count {
+    return placeList.count;
+}
+
+- (NSArray *)getPlaceList {
     return placeList;
-    
 }
-
 @end
