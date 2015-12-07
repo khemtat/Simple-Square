@@ -12,6 +12,7 @@
 #import <Foundation/Foundation.h>
 #import "Places.h"
 #import "Place.h"
+#import "MyCustomAnnotation.h"
 
 @interface MapViewController ()
 <MKMapViewDelegate, CLLocationManagerDelegate, UIAlertViewDelegate>
@@ -44,8 +45,8 @@
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"App Permission Denied"
                                                             message:@"To re-enable, please go to Settings and turn on Location Service for this app."
                                                            delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:@"Settings", nil];
+                                                  cancelButtonTitle:@"Settings"
+                                                  otherButtonTitles:nil];
             [alertView show];
         }
     }
@@ -53,7 +54,7 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     NSLog(@"🆘 buttonIndex: %ld",buttonIndex);
-    if(buttonIndex == 1) {
+    if(buttonIndex == 0) {
         NSURL*url=[NSURL URLWithString:UIApplicationOpenSettingsURLString];
         [[UIApplication sharedApplication] openURL:url];
     }
@@ -83,7 +84,6 @@
 
 #pragma mark - Map View configure
 
-
 - (void)setupMapView{
     NSLog(@"⚠️ [places count] from MapViewController: %ld",[places count]);
     [self.mapView addAnnotations:[places getPlaceList]];
@@ -92,13 +92,11 @@
 }
 
 - (void)mapViewEnclosedAnnotationsIncludeUserLocation {
-//    MKMapPoint userCurrentAnnotationPoint = MKMapPointForCoordinate(currentLocation.coordinate);
     MKMapRect zoomRect = MKMapRectNull;
     for (id <MKAnnotation> annotation in self.mapView.annotations) {
         MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
         MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
         if (MKMapRectIsNull(zoomRect)) {
-//            pointRect = MKMapRectMake(userCurrentAnnotationPoint.x, userCurrentAnnotationPoint.y, 0.1, 0.1);
             zoomRect = pointRect;
         } else {
             zoomRect = MKMapRectUnion(zoomRect, pointRect);
@@ -110,17 +108,20 @@
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
     if (annotation == mapView.userLocation)
         return nil;
-    MKPinAnnotationView *view = (MKPinAnnotationView* )[self.mapView
-                                dequeueReusableAnnotationViewWithIdentifier:@"pin"];
+    
+    MKAnnotationView *view = (MKAnnotationView* )[self.mapView
+                                dequeueReusableAnnotationViewWithIdentifier:@"Place"];
+    
     if (view == nil) {
-        view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"];
+        view = [[MKAnnotationView alloc] initWithAnnotation:annotation
+                                                          reuseIdentifier:@"Place"];
         view.canShowCallout = YES;
-        view.animatesDrop = NO;
         view.calloutOffset = CGPointMake(-5, 5);
         view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     } else {
         view.annotation = annotation;
     }
+    view.image = [UIImage imageNamed:@"pin"];
     return view;
 }
 @end
