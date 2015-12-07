@@ -12,7 +12,6 @@
 #import <Foundation/Foundation.h>
 #import "Places.h"
 #import "Place.h"
-#import "MyCustomAnnotation.h"
 
 @interface MapViewController ()
 <MKMapViewDelegate, CLLocationManagerDelegate, UIAlertViewDelegate>

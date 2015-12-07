@@ -20,7 +20,6 @@
 		6824E0DB1C0F523D00C5C901 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6824E0DA1C0F523D00C5C901 /* MapKit.framework */; };
 		6824E0DD1C0F524F00C5C901 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6824E0DC1C0F524F00C5C901 /* CoreLocation.framework */; };
 		68646B4E1C0F6D2A00AD98FE /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 68646B4D1C0F6D2A00AD98FE /* Place.m */; };
-		687903A31C16153F00C8E1DD /* MyCustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 687903A21C16153F00C8E1DD /* MyCustomAnnotation.m */; };
 		687E568D1C149F4B00DAF383 /* GlobalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 687E568C1C149F4B00DAF383 /* GlobalStorage.m */; };
 		68F6EE881C13997F0015E907 /* Icon.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F6EE871C13997F0015E907 /* Icon.m */; };
 		68F6EE8B1C139A620015E907 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F6EE8A1C139A620015E907 /* Categories.m */; };
@@ -51,8 +50,6 @@
 		6824E0DC1C0F524F00C5C901 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		68646B4C1C0F6D2A00AD98FE /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Place.h; path = model/Place.h; sourceTree = "<group>"; };
 		68646B4D1C0F6D2A00AD98FE /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Place.m; path = model/Place.m; sourceTree = "<group>"; };
-		687903A11C16153F00C8E1DD /* MyCustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCustomAnnotation.h; path = model/MyCustomAnnotation.h; sourceTree = "<group>"; };
-		687903A21C16153F00C8E1DD /* MyCustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCustomAnnotation.m; path = model/MyCustomAnnotation.m; sourceTree = "<group>"; };
 		687E568B1C149F4B00DAF383 /* GlobalStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalStorage.h; sourceTree = "<group>"; };
 		687E568C1C149F4B00DAF383 /* GlobalStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalStorage.m; sourceTree = "<group>"; };
 		68F6EE861C13997F0015E907 /* Icon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Icon.h; sourceTree = "<group>"; };
@@ -190,8 +187,6 @@
 				68646B4D1C0F6D2A00AD98FE /* Place.m */,
 				3F0D66101C0FEAEA008B5641 /* Places.h */,
 				3F0D66111C0FEAEA008B5641 /* Places.m */,
-				687903A11C16153F00C8E1DD /* MyCustomAnnotation.h */,
-				687903A21C16153F00C8E1DD /* MyCustomAnnotation.m */,
 				685094441C1455E800EF4DED /* subclasses place model */,
 			);
 			name = model;
@@ -339,7 +334,6 @@
 				6824E0C81C0F520B00C5C901 /* AppDelegate.m in Sources */,
 				3F0D660B1C0FE5FC008B5641 /* MapViewController.m in Sources */,
 				68FF901A1C1380480021AAC4 /* PlaceDetail.m in Sources */,
-				687903A31C16153F00C8E1DD /* MyCustomAnnotation.m in Sources */,
 				6824E0C51C0F520B00C5C901 /* main.m in Sources */,
 				68646B4E1C0F6D2A00AD98FE /* Place.m in Sources */,
 			);
