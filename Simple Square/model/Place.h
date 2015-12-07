@@ -20,7 +20,6 @@
 @property (nonatomic, readonly) NSDictionary* venue;
 @property (nonatomic, readonly) NSDictionary* location;
 
-- (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate andTitle:(NSString* )title;
 - (id)initWithDictionary:(NSDictionary *)dict;
 
 @end

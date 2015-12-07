@@ -42,14 +42,13 @@ const static NSString *section = @"food";
     
         // Create request
     
-        NSString *llParameter = [NSString stringWithFormat:@"%f,%f", self.currentLocation.coordinate.latitude,
-                                 self.currentLocation.coordinate.longitude];
+        NSString *llParameter = [NSString stringWithFormat:@"%f,%f", self.currentLocation.coordinate.latitude, self.currentLocation.coordinate.longitude];
         NSDictionary* URLParameters = @{
                                         @"client_id":clientID,
                                         @"client_secret":clientSecret,
                                         @"v":APIRequestVersion,
                                         @"section":section,
-                                        @"ll":@"13.731008,100.781229",
+                                        @"ll":llParameter,
                                         @"venuePhotos":@"1",
                                         @"sortByDistance":@"1",
                                         };

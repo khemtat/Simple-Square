@@ -19,15 +19,6 @@ static  NSString const *kVenue = @"venue";
 
 @implementation Place
 
-- (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate andTitle:(NSString* )name {
-    self = [super init];
-    if (self) {
-        self.title = name;
-        _coordinate = coordinate;
-    }
-    return self;
-}
-
 - (id)initWithDictionary:(NSDictionary *)dict{
     self = [super init];
     if (self) {
@@ -37,11 +28,8 @@ static  NSString const *kVenue = @"venue";
         _location = self.venue[kLocation];
         _coordinate = [self getLatitudeAndLongitude:self.location];
         _placeDetail = [[PlaceDetail alloc] initDetailWithDictionary:dict];
-        if (![self.placeDetail.location.crossStreet isEqual:nil]) {
-        self.subtitle = [NSString stringWithFormat:@"%@ %@",self.placeDetail.location.address ,self.placeDetail.location.crossStreet];
-        NSLog(@"%@", self.subtitle);
-            
-        }
+        self.subtitle = self.placeDetail.location.address;
+        NSLog(@"%ld", self.placeDetail.location.distance);
     };
     return self;
 }

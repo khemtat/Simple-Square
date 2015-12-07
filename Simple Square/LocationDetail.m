@@ -11,7 +11,7 @@
 
 static const NSString* kdistance = @"distance";
 static const NSString* kaddress = @"address";
-static const NSString* kcrossStreet = @"crossStreet";
+static NSString* const kformattedAddress = @"formattedAddress";
 
 @implementation LocationDetail
 
@@ -20,10 +20,11 @@ static const NSString* kcrossStreet = @"crossStreet";
     if(self){
         //NSLog(@"from Location Bug is %@" ,dict);
         self.distance = [dict[kdistance] integerValue];
+//        if (![[dict valueForKey:kformattedAddress] isEqual:nil]) {
+//            _formattedAddress = dict[kformattedAddress];
+//        }
         _address = dict[kaddress];
-        if (![dict[kcrossStreet] isEqual:nil]) {
-            _crossStreet = dict[kcrossStreet];
-        }
+        
     };
     return self;
 }
