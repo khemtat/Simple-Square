@@ -10,10 +10,8 @@
 #import <Foundation/Foundation.h>
 
 static const NSString* kdistance = @"distance";
+static const NSString* kaddress = @"address";
 static const NSString* kcrossStreet = @"crossStreet";
-static const NSString* kcity = @"city";
-static const NSString* kstate = @"state";
-static const NSString* kcountry = @"country";
 
 @implementation LocationDetail
 
@@ -22,10 +20,10 @@ static const NSString* kcountry = @"country";
     if(self){
         //NSLog(@"from Location Bug is %@" ,dict);
         self.distance = [dict[kdistance] integerValue];
-        _crossStreet = dict[kcrossStreet];
-        _city = dict[kcity];
-        _state = dict[kstate];
-        _country = dict[kcountry];
+        _address = dict[kaddress];
+        if (![dict[kcrossStreet] isEqual:nil]) {
+            _crossStreet = dict[kcrossStreet];
+        }
     };
     return self;
 }

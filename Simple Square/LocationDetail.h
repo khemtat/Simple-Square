@@ -12,10 +12,8 @@
 @interface LocationDetail : JSONModel
 
 @property (assign, nonatomic) long distance;
+@property (readonly, nonatomic) NSString* address;
 @property (readonly, nonatomic) NSString* crossStreet;
-@property (readonly, nonatomic) NSString* city;
-@property (readonly, nonatomic) NSString* state;
-@property (readonly, nonatomic) NSString* country;
 
 - (id)initLocationDetailWithDictionary:(NSDictionary *) dict;
 

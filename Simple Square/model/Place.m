@@ -36,7 +36,13 @@ static  NSString const *kVenue = @"venue";
         //NSLog(@"%@", self.title);
         _location = self.venue[kLocation];
         _coordinate = [self getLatitudeAndLongitude:self.location];
-        _placeDetail = [[PlaceDetail alloc] initDetailWithDictionary:dict];    };
+        _placeDetail = [[PlaceDetail alloc] initDetailWithDictionary:dict];
+        if (![self.placeDetail.location.crossStreet isEqual:nil]) {
+        self.subtitle = [NSString stringWithFormat:@"%@ %@",self.placeDetail.location.address ,self.placeDetail.location.crossStreet];
+        NSLog(@"%@", self.subtitle);
+            
+        }
+    };
     return self;
 }
 

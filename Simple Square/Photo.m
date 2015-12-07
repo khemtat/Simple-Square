@@ -20,13 +20,13 @@ static NSString* const kItems = @"items";
 -(id)initPhotoWithDictionary:(NSDictionary *) dict{
     self = [super init];
     if (self) {
-//        _groups = dict[kGroups];
-//        _groupItems = self.groups[0];
-//        _items = self.groupItems[kItems];
-//        _itemOfItems = self.items[0];
-//        _prefix = self.itemOfItems[kPrefix];
-//        _suffix = self.itemOfItems[kSuffix];
-//        _image = [[self.prefix stringByAppendingString:@"original"] stringByAppendingString:self.suffix];
+        _groups = dict[kGroups];
+        _groupItems = [self.groups firstObject];
+        _items = self.groupItems[kItems];
+        _itemOfItems = [self.items firstObject];
+        _prefix = self.itemOfItems[kPrefix];
+        _suffix = self.itemOfItems[kSuffix];
+        _image = [[self.prefix stringByAppendingString:@"original"] stringByAppendingString:self.suffix];
         
         //NSLog(@"Bug from Photo %@", dict);
         //_groups = dict[kGroups];
