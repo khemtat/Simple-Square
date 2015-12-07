@@ -30,10 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self locationManagerSetup];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+    [self setupMapView];
 }
 
 #pragma mark - Location Manager
@@ -73,9 +70,7 @@
     currentLocation = locations[0];
     double latitude = currentLocation.coordinate.latitude;
     double longitude = currentLocation.coordinate.longitude;
-    
-    NSString* coordinateString = [NSString stringWithFormat:@"%f,%f",latitude,longitude];
-    places = [Places defaultDataWithCurrentLocation:coordinateString];
+    places = [Places defaultDataWithCurrentLocation:currentLocation];
     NSLog(@"❓ Places instance in MapViewController: %@",places);
     [locationManager stopUpdatingLocation];
     locationManager = nil;
@@ -87,21 +82,14 @@
 
 
 - (void)setupMapView {
-
-//    Place *place1 = [[Place alloc] initWithCoordinate:CLLocationCoordinate2DMake(13.845766, 100.840859) andTitle:@"71/271"];
-//    Place *place2 = [[Place alloc] initWithCoordinate:CLLocationCoordinate2DMake(13.831599, 100.849828) andTitle:@"ศูนย์ฝึกอบรม"];
-//    Place *place3 = [[Place alloc] initWithCoordinate:CLLocationCoordinate2DMake(13.820008, 100.844289) andTitle:@"OtheBankky"];
-//    Place *place4 = [[Place alloc] initWithCoordinate:CLLocationCoordinate2DMake(13.834016, 100.865964) andTitle:@"Clevz"];
-//    NSArray *list = @[place1,place2,place3,place4];
-//    [self.mapView addAnnotations:list];
-    
     double delayInSeconds = 3.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         NSLog(@"⚠️ [places count] from MapViewController: %ld",[places count]);
+        [self.mapView addAnnotations:[places getPlaceList]];
+        [self mapViewEnclosedAnnotationsIncludeUserLocation];
+        NSLog(@"Ⓜ️ Add annotations successfully!!");
     });
-    [self mapViewEnclosedAnnotationsIncludeUserLocation];
-//    NSLog(@"Ⓜ️ Add annotations successfully!!");
 }
 
 - (void)mapViewEnclosedAnnotationsIncludeUserLocation {

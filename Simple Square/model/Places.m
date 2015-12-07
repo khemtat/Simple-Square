@@ -10,7 +10,6 @@
 #import "Place.h"
 #import <Foundation/Foundation.h>
 #import <AFNetworking.h>
-#import "MapViewController.h"
 
 const static NSString *clientID = @"KTNUKEWM0BIWR3LFJ1DM150OFZ4ZBP0WYCFFJC2EOVH0QNL2";
 const static NSString *clientSecret = @"X00LW15CHQKBSLNJGGQ4XFHQ24CK0VMZW5TZ5EQYEMDFVG4M";
@@ -19,14 +18,13 @@ const static NSString *section = @"food";
 
 @implementation Places {
     NSArray* placeList;
-    Place* place;
 }
 
-+ (id)defaultDataWithCurrentLocation:(NSString *)location {
++ (id)defaultDataWithCurrentLocation:(CLLocation *)location {
     return [[[self class] alloc] initWithDefaultData:location];
 }
 
-- (id)initWithDefaultData:location {
+- (id)initWithDefaultData:(CLLocation *)location {
     self = [super init];
     if (self) {
         self.currentLocation = location;
@@ -43,12 +41,15 @@ const static NSString *section = @"food";
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
         // Create request
+    
+        NSString *llParameter = [NSString stringWithFormat:@"%f,%f", self.currentLocation.coordinate.latitude,
+                                 self.currentLocation.coordinate.longitude];
         NSDictionary* URLParameters = @{
                                         @"client_id":clientID,
                                         @"client_secret":clientSecret,
                                         @"v":APIRequestVersion,
                                         @"section":section,
-                                        @"ll":self.currentLocation,
+                                        @"ll":llParameter,
                                         @"venuePhotos":@"1"
                                         };
     
@@ -67,7 +68,7 @@ const static NSString *section = @"food";
             NSLog(@"✅ Send request places data successfully!!");
 }
 
-- (void)parsedToJson:(id)responseObject {
+- (void)parsedToJson:(id) responseObject {
     NSDictionary* dictionary = [[NSDictionary alloc] initWithDictionary:responseObject];
     NSArray* tempArray = [[NSArray alloc] initWithObjects:dictionary[@"response"], nil];
     dictionary = [[NSDictionary alloc] initWithDictionary:tempArray[0]];
@@ -80,16 +81,13 @@ const static NSString *section = @"food";
     [self parsedJsonToArray:venues];
 }
 
-- (void)parsedJsonToArray:(NSArray *)venues{
+- (void)parsedJsonToArray:(NSArray *) venues {
     NSMutableArray *tempArray = [[NSMutableArray alloc] initWithCapacity:venues.count];
     NSLog(@"✅ json.count = %ld", venues.count);
     for (NSDictionary *dict in venues) {
         [tempArray addObject:[[Place alloc] initWithDictionary:dict]];
     }
     placeList = [[NSArray alloc] initWithArray:tempArray];
-
-    MapViewController *viewController = [MapViewController alloc];
-    [viewController setupMapView];
     NSLog(@"✅ Parsed json to places array successfully!!");
 }
 
@@ -102,7 +100,7 @@ const static NSString *section = @"food";
     return placeList.count;
 }
 
-- (NSArray *)getPlaceList {
+- (NSArray *) getPlaceList {
     return placeList;
 }
 @end

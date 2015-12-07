@@ -11,10 +11,10 @@
 
 @interface Places : NSObject
 
-@property (strong,nonatomic) NSString *currentLocation;
+@property (strong,nonatomic) CLLocation *currentLocation;
 @property (readonly) NSUInteger count;
 
-+ (id)defaultDataWithCurrentLocation:(NSString *)location;
++ (id)defaultDataWithCurrentLocation:(CLLocation *)location;
 - (Place *) placeAtIndex:(NSUInteger)index;
 - (NSArray *) getPlaceList;
 
