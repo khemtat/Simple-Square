@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Simple Square/MapViewController.m"
-            timestampString = "471263371.037835"
+            timestampString = "471270461.383357"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "@implementation MapViewController"
             landmarkType = "3">
          </BreakpointContent>
