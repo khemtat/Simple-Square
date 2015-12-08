@@ -8,7 +8,6 @@
         <!--Locations-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="MapViewController" sceneMemberID="viewController">
                     <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="Aa6-cg-H6Q">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -18,13 +17,16 @@
                             <outlet property="delegate" destination="BYZ-38-t0r" id="uDh-ac-cOg"/>
                         </connections>
                     </mapView>
-                    <navigationItem key="navigationItem" title="Locations" id="EbF-1D-MJH"/>
+                    <navigationItem key="navigationItem" title="Locations" id="EbF-1D-MJH">
+                        <barButtonItem key="backBarButtonItem" title="ย้อนกลับไงฟาย" id="7Jl-nr-xcu"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="Aa6-cg-H6Q" id="N6o-3K-Tkj"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1163" y="394"/>
+            <point key="canvasLocation" x="1055" y="428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fHd-IV-BoG">

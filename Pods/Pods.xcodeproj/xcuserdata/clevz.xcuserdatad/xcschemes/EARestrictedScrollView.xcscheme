@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '34FBC9F97C42EAD673F6DDB5'
-               BlueprintName = 'JSONModel'
+               BlueprintIdentifier = 'F5BDC9054AF3F56B56D5C44E'
+               BlueprintName = 'EARestrictedScrollView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libJSONModel.a'>
+               BuildableName = 'libEARestrictedScrollView.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

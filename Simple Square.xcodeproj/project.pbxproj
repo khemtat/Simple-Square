@@ -11,6 +11,7 @@
 		3F0D660B1C0FE5FC008B5641 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D660A1C0FE5FC008B5641 /* MapViewController.m */; };
 		3F0D660F1C0FE668008B5641 /* PlaceTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D660E1C0FE668008B5641 /* PlaceTableView.m */; };
 		3F0D66121C0FEAEA008B5641 /* Places.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D66111C0FEAEA008B5641 /* Places.m */; };
+		681FC1431C16D6D400842AFB /* VenueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 681FC1421C16D6D400842AFB /* VenueViewController.m */; };
 		6824E0C51C0F520B00C5C901 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6824E0C41C0F520B00C5C901 /* main.m */; };
 		6824E0C81C0F520B00C5C901 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6824E0C71C0F520B00C5C901 /* AppDelegate.m */; };
 		6824E0CB1C0F520B00C5C901 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6824E0CA1C0F520B00C5C901 /* ViewController.m */; };
@@ -36,6 +37,8 @@
 		3F0D660E1C0FE668008B5641 /* PlaceTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceTableView.m; sourceTree = "<group>"; };
 		3F0D66101C0FEAEA008B5641 /* Places.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Places.h; path = model/Places.h; sourceTree = "<group>"; };
 		3F0D66111C0FEAEA008B5641 /* Places.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Places.m; path = model/Places.m; sourceTree = "<group>"; };
+		681FC1411C16D6D400842AFB /* VenueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueViewController.h; sourceTree = "<group>"; };
+		681FC1421C16D6D400842AFB /* VenueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueViewController.m; sourceTree = "<group>"; };
 		6824E0C01C0F520B00C5C901 /* Simple Square.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Square.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6824E0C41C0F520B00C5C901 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6824E0C61C0F520B00C5C901 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 				6824E0C71C0F520B00C5C901 /* AppDelegate.m */,
 				3F0D66091C0FE5FC008B5641 /* MapViewController.h */,
 				3F0D660A1C0FE5FC008B5641 /* MapViewController.m */,
+				681FC1411C16D6D400842AFB /* VenueViewController.h */,
+				681FC1421C16D6D400842AFB /* VenueViewController.m */,
 				6824E0CC1C0F520B00C5C901 /* Main.storyboard */,
 				6824E0D11C0F520B00C5C901 /* LaunchScreen.storyboard */,
 				6824E0CF1C0F520B00C5C901 /* Assets.xcassets */,
@@ -327,6 +332,7 @@
 				6824E0CB1C0F520B00C5C901 /* ViewController.m in Sources */,
 				68F6EE881C13997F0015E907 /* Icon.m in Sources */,
 				68F6EE8B1C139A620015E907 /* Categories.m in Sources */,
+				681FC1431C16D6D400842AFB /* VenueViewController.m in Sources */,
 				68F6EE941C139B9A0015E907 /* Photo.m in Sources */,
 				68F6EE8E1C139AC80015E907 /* LocationDetail.m in Sources */,
 				687E568D1C149F4B00DAF383 /* GlobalStorage.m in Sources */,

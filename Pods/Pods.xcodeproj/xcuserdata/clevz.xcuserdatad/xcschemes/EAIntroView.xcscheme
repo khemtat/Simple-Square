@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '34FBC9F97C42EAD673F6DDB5'
-               BlueprintName = 'JSONModel'
+               BlueprintIdentifier = 'AE1DF4212F2FCE36CBB1BEFA'
+               BlueprintName = 'EAIntroView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libJSONModel.a'>
+               BuildableName = 'libEAIntroView.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
