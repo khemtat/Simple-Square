@@ -13,6 +13,7 @@
 #import "Places.h"
 #import "Place.h"
 #import <EAIntroView/EAIntroView.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 
 @interface MapViewController ()
@@ -33,11 +34,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Cafe Recommended";
     [self setupIntroView];
+    [self setupLoadingState];
     [self locationManagerSetup];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.00 green:0.70 blue:0.99 alpha:1.0];
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    self.navigationController.navigationBar.translucent = NO;
+}
+
+- (void) setupLoadingState {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading";
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(setupMapView)
                                                  name:@"foursquareDataLoadedNotification"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(viewDidLoad)
+                                                 name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
 }
 
@@ -104,6 +121,7 @@
     NSLog(@"⚠️ [places count] from MapViewController: %ld",[places count]);
     [self.mapView addAnnotations:[places getPlaceList]];
     [self mapViewEnclosedAnnotationsIncludeUserLocation];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
     NSLog(@"Ⓜ️ Add annotations successfully!!");
 }
 
@@ -124,30 +142,37 @@
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
     if (annotation == mapView.userLocation)
         return nil;
-    Place *place = (Place *)annotation;
-    long distanceInM = (place.placeDetail.location.distance);
-    double distanceInKM = distanceInM/1000.0;
+    double distanceInKM = ((double)((Place *)annotation).placeDetail.location.distance)/1000.0;
     MKAnnotationView *view = (MKAnnotationView* )[self.mapView
                                 dequeueReusableAnnotationViewWithIdentifier:@"Place"];
-    if (view == nil) {
-        view = [[MKAnnotationView alloc] initWithAnnotation:annotation
-                                                          reuseIdentifier:@"Place"];
-        view.canShowCallout = YES;
-        view.calloutOffset = CGPointMake(-5, 5);
-        view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        UILabel *distance = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-        distance.textColor = [UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:1.0];
-        distance.text = [NSString stringWithFormat:@"%.2lf\nKM",distanceInKM];
-        distance.textAlignment = 1;
-        distance.numberOfLines = 2;
-        [distance setFont:[UIFont systemFontOfSize:15.0]];
-        distance.backgroundColor = [UIColor colorWithRed:0.36 green:0.72 blue:0.36 alpha:1.0];
-        view.leftCalloutAccessoryView = distance;
-        view.image = [UIImage imageNamed:@"pin"];
-    } else {
-        view.annotation = annotation;
-    }
+    view = [[MKAnnotationView alloc] initWithAnnotation:annotation
+                                        reuseIdentifier:@"Place"];
+    [self setupCallout:view andDistance:distanceInKM];
     return view;
+}
+
+- (MKAnnotationView *) setupCallout:(MKAnnotationView *)annotation andDistance:(double) distanceInKM {
+    annotation.canShowCallout = YES;
+    annotation.calloutOffset = CGPointMake(-5, 5);
+    annotation.rightCalloutAccessoryView = [self setupRightCalloutAccessoryView];
+    annotation.leftCalloutAccessoryView = [self setupLeftCalloutAccessoryView:distanceInKM];
+    annotation.image = [UIImage imageNamed:@"pin"];
+    return annotation;
+}
+
+- (UIButton *) setupRightCalloutAccessoryView {
+    return [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+}
+
+- (UIView *) setupLeftCalloutAccessoryView:(double) distanceInKM {
+    UILabel *distance = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    distance.textColor = [UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:1.0];
+    distance.text = [NSString stringWithFormat:@"%.2lf\nKM",distanceInKM];
+    distance.textAlignment = 1;
+    distance.numberOfLines = 2;
+    [distance setFont:[UIFont systemFontOfSize:15.0]];
+    distance.backgroundColor = [UIColor colorWithRed:0.36 green:0.72 blue:0.36 alpha:1.0];
+    return distance;
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view
