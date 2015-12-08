@@ -12,6 +12,7 @@
 #import <Foundation/Foundation.h>
 #import "Places.h"
 #import "Place.h"
+#import "VenueViewController.h"
 
 @interface MapViewController ()
 <MKMapViewDelegate, CLLocationManagerDelegate, UIAlertViewDelegate>
@@ -107,11 +108,16 @@
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
     if (annotation == mapView.userLocation)
         return nil;
+    
     MKAnnotationView *view = (MKAnnotationView* )[self.mapView
                                 dequeueReusableAnnotationViewWithIdentifier:@"Place"];
     if (view == nil) {
         view = [[MKAnnotationView alloc] initWithAnnotation:annotation
                                                           reuseIdentifier:@"Place"];
+        
+//        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 2, 7, 7)];
+//        label.text = @"5";
+//        [view addSubview:label];
         view.canShowCallout = YES;
         view.calloutOffset = CGPointMake(-5, 5);
         view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
@@ -120,5 +126,11 @@
         view.annotation = annotation;
     }
     return view;
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view
+                      calloutAccessoryControlTapped:(UIControl *)control {
+    Place *place = (Place *)view.annotation;
+    NSLog(@"inside the stupid method %@",[place placeDetail].venue);
 }
 @end
