@@ -12,7 +12,8 @@
 #import <Foundation/Foundation.h>
 #import "Places.h"
 #import "Place.h"
-#import "VenueViewController.h"
+#import "IntroViewController.h"
+
 
 @interface MapViewController ()
 <MKMapViewDelegate, CLLocationManagerDelegate, UIAlertViewDelegate>

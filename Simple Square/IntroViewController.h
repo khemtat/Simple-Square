@@ -1,5 +1,5 @@
 //
-//  VenueViewController.h
+//  IntroViewController.h
 //  Simple Square
 //
 //  Created by Khemtat Lengpaiboon on 12/8/2558 BE.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Place.h"
 
-@interface VenueViewController : UIViewController
-@property (strong,nonatomic) Place *place;
+@interface IntroViewController : UIViewController
+
 @end
