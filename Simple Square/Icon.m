@@ -18,7 +18,7 @@ static const NSString* kIconSuffix = @"suffix";
     if (self) {
         _prefix = dict[kIconPrefix];
         _suffix = dict[kIconSuffix];
-        _icon = [[self.prefix stringByAppendingString:@"32"] stringByAppendingString:self.suffix];
+        _icon = [[self.prefix stringByAppendingString:@"16"] stringByAppendingString:self.suffix];
 //        NSLog(@"%@",self.icon);
     }
     return  self;
