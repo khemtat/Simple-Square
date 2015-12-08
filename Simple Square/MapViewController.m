@@ -12,7 +12,6 @@
 #import <Foundation/Foundation.h>
 #import "Places.h"
 #import "Place.h"
-#import "IntroViewController.h"
 #import <EAIntroView/EAIntroView.h>
 
 
@@ -130,10 +129,6 @@
     if (view == nil) {
         view = [[MKAnnotationView alloc] initWithAnnotation:annotation
                                                           reuseIdentifier:@"Place"];
-        
-//        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 2, 7, 7)];
-//        label.text = @"5";
-//        [view addSubview:label];
         view.canShowCallout = YES;
         view.calloutOffset = CGPointMake(-5, 5);
         view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];

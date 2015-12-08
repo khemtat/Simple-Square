@@ -28,25 +28,6 @@
             </objects>
             <point key="canvasLocation" x="1581" y="428"/>
         </scene>
-        <!--Intro View Controller-->
-        <scene sceneID="GSJ-aO-5O0">
-            <objects>
-                <viewController id="shk-Ur-fQD" customClass="IntroViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4RC-LH-aNq"/>
-                        <viewControllerLayoutGuide type="bottom" id="cfK-WP-3bS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bLB-vD-SL6" customClass="EAIntroView">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="D1l-pr-tct" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="173" y="428"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="fHd-IV-BoG">
             <objects>
