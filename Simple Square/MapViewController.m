@@ -160,8 +160,8 @@
 
 - (void)showIntroWithCrossDissolve {
     EAIntroPage *page1 = [EAIntroPage page];
-    page1.title = @"Hello world";
-    page1.desc = @"1 na";
+    page1.title = @"ยินดีต้อนรับ";
+    page1.desc = @"OThe Bankky Noob mak";
     page1.bgImage = [UIImage imageNamed:@"bg1"];
     page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title1"]];
     

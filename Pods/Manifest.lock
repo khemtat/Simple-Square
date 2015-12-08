@@ -24,16 +24,19 @@ PODS:
     - EARestrictedScrollView (~> 0.2.0)
   - EARestrictedScrollView (0.2.0)
   - JSONModel (1.1.2)
+  - MBProgressHUD (0.9.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - EAIntroView (~> 2.8.0)
   - JSONModel
+  - MBProgressHUD (~> 0.9.1)
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   EAIntroView: f602b9e04b707870361655fdaa7e3798d8ffb53c
   EARestrictedScrollView: f86d61e16c61d3e93c84f8e96e83122a2a3b7631
   JSONModel: 216584d0311b053ff714f1d6cb700dbf890847bc
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
 
 COCOAPODS: 0.39.0

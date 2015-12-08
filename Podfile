@@ -8,4 +8,5 @@ platform :ios, '7.0'
 pod "AFNetworking", "~> 2.0"
 pod 'JSONModel'
 pod 'EAIntroView', '~> 2.8.0'
+pod 'MBProgressHUD', '~> 0.9.1'
 end
