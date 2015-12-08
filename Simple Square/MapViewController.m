@@ -21,7 +21,7 @@
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @end
 
-@implementation MapViewController {\
+@implementation MapViewController {
     UIView *rootView;
     EAIntroView *_intro;
     Places *places;
@@ -33,16 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    rootView = self.navigationController.view;
-    if (![@"1" isEqualToString:[[NSUserDefaults standardUserDefaults]
-                                objectForKey:@"firstTimeRunningApp"]]) {
-        [self showIntroWithCrossDissolve];
-        [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"firstTimeRunningApp"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    } //else {
-        //[self performSegueWithIdentifier:@"showMapViewController" sender:self];
-        //NSLog(@"AEIOU");
-    //}
+    [self setupIntroView];
     [self locationManagerSetup];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(setupMapView)
@@ -50,11 +41,23 @@
                                                object:nil];
 }
 
+#pragma mark - Intro View
+
+- (void) setupIntroView {
+    rootView = self.navigationController.view;
+    if (![@"1" isEqualToString:[[NSUserDefaults standardUserDefaults]
+                                objectForKey:@"firstTimeRunningApp"]]) {
+        [self showIntroWithCrossDissolve];
+        [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"firstTimeRunningApp"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
 #pragma mark - Location Manager
 
 - (void)checkingLocationServicePermission {
     if([CLLocationManager locationServicesEnabled]){
-        if([CLLocationManager authorizationStatus]==kCLAuthorizationStatusDenied){
+        if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied){
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"App Permission Denied"
                                                             message:@"To re-enable, please go to Settings and turn on Location Service for this app."
                                                            delegate:self

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		12D498BBCC9E24D93592DB3E /* libPods-Simple Square.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3195883F772C58BA12646BF5 /* libPods-Simple Square.a */; };
 		3F0D660B1C0FE5FC008B5641 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D660A1C0FE5FC008B5641 /* MapViewController.m */; };
-		3F0D660F1C0FE668008B5641 /* PlaceTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D660E1C0FE668008B5641 /* PlaceTableView.m */; };
 		3F0D66121C0FEAEA008B5641 /* Places.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D66111C0FEAEA008B5641 /* Places.m */; };
 		6806B17D1C16F4BF000ACED7 /* bg1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6806B16E1C16F4BF000ACED7 /* bg1@2x.png */; };
 		6806B17E1C16F4BF000ACED7 /* bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6806B16F1C16F4BF000ACED7 /* bg2@2x.png */; };
@@ -28,14 +27,12 @@
 		6806B18B1C16F4BF000ACED7 /* title4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6806B17C1C16F4BF000ACED7 /* title4@2x.png */; };
 		6824E0C51C0F520B00C5C901 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6824E0C41C0F520B00C5C901 /* main.m */; };
 		6824E0C81C0F520B00C5C901 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6824E0C71C0F520B00C5C901 /* AppDelegate.m */; };
-		6824E0CB1C0F520B00C5C901 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6824E0CA1C0F520B00C5C901 /* ViewController.m */; };
 		6824E0CE1C0F520B00C5C901 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6824E0CC1C0F520B00C5C901 /* Main.storyboard */; };
 		6824E0D01C0F520B00C5C901 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6824E0CF1C0F520B00C5C901 /* Assets.xcassets */; };
 		6824E0D31C0F520B00C5C901 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6824E0D11C0F520B00C5C901 /* LaunchScreen.storyboard */; };
 		6824E0DB1C0F523D00C5C901 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6824E0DA1C0F523D00C5C901 /* MapKit.framework */; };
 		6824E0DD1C0F524F00C5C901 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6824E0DC1C0F524F00C5C901 /* CoreLocation.framework */; };
 		68646B4E1C0F6D2A00AD98FE /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 68646B4D1C0F6D2A00AD98FE /* Place.m */; };
-		687E568D1C149F4B00DAF383 /* GlobalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 687E568C1C149F4B00DAF383 /* GlobalStorage.m */; };
 		68F6EE881C13997F0015E907 /* Icon.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F6EE871C13997F0015E907 /* Icon.m */; };
 		68F6EE8B1C139A620015E907 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F6EE8A1C139A620015E907 /* Categories.m */; };
 		68F6EE8E1C139AC80015E907 /* LocationDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F6EE8D1C139AC80015E907 /* LocationDetail.m */; };
@@ -47,8 +44,6 @@
 		3195883F772C58BA12646BF5 /* libPods-Simple Square.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Simple Square.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F0D66091C0FE5FC008B5641 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		3F0D660A1C0FE5FC008B5641 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		3F0D660D1C0FE668008B5641 /* PlaceTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceTableView.h; sourceTree = "<group>"; };
-		3F0D660E1C0FE668008B5641 /* PlaceTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceTableView.m; sourceTree = "<group>"; };
 		3F0D66101C0FEAEA008B5641 /* Places.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Places.h; path = model/Places.h; sourceTree = "<group>"; };
 		3F0D66111C0FEAEA008B5641 /* Places.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Places.m; path = model/Places.m; sourceTree = "<group>"; };
 		6806B16E1C16F4BF000ACED7 /* bg1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg1@2x.png"; sourceTree = "<group>"; };
@@ -70,8 +65,6 @@
 		6824E0C41C0F520B00C5C901 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6824E0C61C0F520B00C5C901 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6824E0C71C0F520B00C5C901 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6824E0C91C0F520B00C5C901 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6824E0CA1C0F520B00C5C901 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6824E0CD1C0F520B00C5C901 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6824E0CF1C0F520B00C5C901 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6824E0D21C0F520B00C5C901 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,8 +73,6 @@
 		6824E0DC1C0F524F00C5C901 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		68646B4C1C0F6D2A00AD98FE /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Place.h; path = model/Place.h; sourceTree = "<group>"; };
 		68646B4D1C0F6D2A00AD98FE /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Place.m; path = model/Place.m; sourceTree = "<group>"; };
-		687E568B1C149F4B00DAF383 /* GlobalStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalStorage.h; sourceTree = "<group>"; };
-		687E568C1C149F4B00DAF383 /* GlobalStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalStorage.m; sourceTree = "<group>"; };
 		68F6EE861C13997F0015E907 /* Icon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Icon.h; sourceTree = "<group>"; };
 		68F6EE871C13997F0015E907 /* Icon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Icon.m; sourceTree = "<group>"; };
 		68F6EE891C139A620015E907 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
@@ -110,19 +101,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3F0D660C1C0FE62F008B5641 /* unused files */ = {
-			isa = PBXGroup;
-			children = (
-				687E568B1C149F4B00DAF383 /* GlobalStorage.h */,
-				687E568C1C149F4B00DAF383 /* GlobalStorage.m */,
-				3F0D660D1C0FE668008B5641 /* PlaceTableView.h */,
-				3F0D660E1C0FE668008B5641 /* PlaceTableView.m */,
-				6824E0C91C0F520B00C5C901 /* ViewController.h */,
-				6824E0CA1C0F520B00C5C901 /* ViewController.m */,
-			);
-			name = "unused files";
-			sourceTree = "<group>";
-		};
 		6806B16D1C16F4BF000ACED7 /* Intro */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,12 +149,11 @@
 				6824E0C71C0F520B00C5C901 /* AppDelegate.m */,
 				3F0D66091C0FE5FC008B5641 /* MapViewController.h */,
 				3F0D660A1C0FE5FC008B5641 /* MapViewController.m */,
-				6806B16D1C16F4BF000ACED7 /* Intro */,
 				6824E0CC1C0F520B00C5C901 /* Main.storyboard */,
 				6824E0D11C0F520B00C5C901 /* LaunchScreen.storyboard */,
 				6824E0CF1C0F520B00C5C901 /* Assets.xcassets */,
 				6824E0D41C0F520B00C5C901 /* Info.plist */,
-				3F0D660C1C0FE62F008B5641 /* unused files */,
+				6806B16D1C16F4BF000ACED7 /* Intro */,
 				6824E0C31C0F520B00C5C901 /* Supporting Files */,
 			);
 			path = "Simple Square";
@@ -392,13 +369,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F0D66121C0FEAEA008B5641 /* Places.m in Sources */,
-				6824E0CB1C0F520B00C5C901 /* ViewController.m in Sources */,
 				68F6EE881C13997F0015E907 /* Icon.m in Sources */,
 				68F6EE8B1C139A620015E907 /* Categories.m in Sources */,
 				68F6EE941C139B9A0015E907 /* Photo.m in Sources */,
 				68F6EE8E1C139AC80015E907 /* LocationDetail.m in Sources */,
-				687E568D1C149F4B00DAF383 /* GlobalStorage.m in Sources */,
-				3F0D660F1C0FE668008B5641 /* PlaceTableView.m in Sources */,
 				6824E0C81C0F520B00C5C901 /* AppDelegate.m in Sources */,
 				3F0D660B1C0FE5FC008B5641 /* MapViewController.m in Sources */,
 				68FF901A1C1380480021AAC4 /* PlaceDetail.m in Sources */,
