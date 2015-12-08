@@ -9,6 +9,8 @@
 #import "VenueViewController.h"
 
 @interface VenueViewController ()
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+
 
 @end
 
@@ -16,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.titleLabel.text = self.place.title;
 }
 
 - (void)didReceiveMemoryWarning {
