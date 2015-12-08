@@ -178,7 +178,10 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view
                       calloutAccessoryControlTapped:(UIControl *)control {
     Place *place = (Place *)view.annotation;
-    NSLog(@"inside the stupid method %@",[place placeDetail].venue);
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"http://maps.apple.com/?saddr=%f,%f&daddr=%f,%f",place.coordinate.latitude,place.coordinate.longitude,currentLocation.coordinate.latitude,currentLocation.coordinate.longitude]];
+    [[UIApplication sharedApplication] openURL:URL];
+    
+//    NSLog(@"inside the stupid method %@",[place placeDetail].venue);
 }
 
 #pragma mark - Intro View
