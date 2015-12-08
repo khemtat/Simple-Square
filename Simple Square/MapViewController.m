@@ -34,10 +34,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Cafe Recommended";
+    [self setupView];
     [self setupIntroView];
     [self setupLoadingState];
     [self locationManagerSetup];
+}
+
+- (void) setupView {
+    self.title = @"Cafe Recommended";
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.00 green:0.70 blue:0.99 alpha:1.0];
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
@@ -51,7 +55,6 @@
                                              selector:@selector(setupMapView)
                                                  name:@"foursquareDataLoadedNotification"
                                                object:nil];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(viewDidLoad)
                                                  name:UIApplicationDidBecomeActiveNotification
@@ -108,7 +111,6 @@
     double latitude = currentLocation.coordinate.latitude;
     double longitude = currentLocation.coordinate.longitude;
     places = [Places defaultDataWithCurrentLocation:currentLocation];
-    NSLog(@"❓ Places instance in MapViewController: %@",places);
     [locationManager stopUpdatingLocation];
     locationManager = nil;
     self.mapView.showsUserLocation = YES;

@@ -29,7 +29,6 @@ const static NSString *section = @"food";
     if (self) {
         self.currentLocation = location;
         [self sendRequestPlacesData:self];
-        NSLog(@"❓ Places instance in Places header: %@",self);
     }
     return self;
 }
