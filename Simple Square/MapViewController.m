@@ -136,7 +136,9 @@
             zoomRect = MKMapRectUnion(zoomRect, pointRect);
         }
     }
-    [self.mapView setVisibleMapRect:zoomRect edgePadding:UIEdgeInsetsMake(85, 10, 10, 10) animated:YES];
+    [self.mapView setVisibleMapRect:zoomRect
+                        edgePadding:UIEdgeInsetsMake(85, 10, 10, 10)
+                           animated:YES];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
@@ -146,7 +148,7 @@
     MKAnnotationView *view = (MKAnnotationView* )[self.mapView
                                 dequeueReusableAnnotationViewWithIdentifier:@"Place"];
     view = [[MKAnnotationView alloc] initWithAnnotation:annotation
-                                        reuseIdentifier:@"Place"];
+                                    reuseIdentifier:@"Place"];
     [self setupCallout:view andDistance:distanceInKM];
     return view;
 }
@@ -178,43 +180,24 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view
                       calloutAccessoryControlTapped:(UIControl *)control {
     Place *place = (Place *)view.annotation;
-    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"http://maps.apple.com/?saddr=%f,%f&daddr=%f,%f",place.coordinate.latitude,place.coordinate.longitude,currentLocation.coordinate.latitude,currentLocation.coordinate.longitude]];
+    NSURL *URL = [NSURL URLWithString:
+                  [NSString stringWithFormat:@"http://maps.apple.com/?daddr=%f,%f",
+                   place.coordinate.latitude,
+                   place.coordinate.longitude
+                   ]];
     [[UIApplication sharedApplication] openURL:URL];
-    
-//    NSLog(@"inside the stupid method %@",[place placeDetail].venue);
 }
 
 #pragma mark - Intro View
 
 - (void)showIntroWithCrossDissolve {
     EAIntroPage *page1 = [EAIntroPage page];
-    page1.title = @"ยินดีต้อนรับ";
-    page1.desc = @"OThe Bankky Noob mak";
+    page1.title = @"Welcome !!";
+    page1.desc = @"Simple Square is a quick way to explore food places, cafe and restaurants\ngo and find some places :)";
     page1.bgImage = [UIImage imageNamed:@"bg1"];
-    page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title1"]];
-    
-    EAIntroPage *page2 = [EAIntroPage page];
-    page2.title = @"This is page 2";
-    page2.desc = @"2 na";
-    page2.bgImage = [UIImage imageNamed:@"bg2"];
-    page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title2"]];
-    
-    EAIntroPage *page3 = [EAIntroPage page];
-    page3.title = @"This is page 3";
-    page3.desc = @"3 na";
-    page3.bgImage = [UIImage imageNamed:@"bg3"];
-    page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title3"]];
-    
-    EAIntroPage *page4 = [EAIntroPage page];
-    page4.title = @"This is page 4";
-    page4.desc = @"4 na";
-    page4.bgImage = [UIImage imageNamed:@"bg4"];
-    page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title4"]];
-    
-    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4]];
-    
+    page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"restaurant"]];
+    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1]];
     [intro setDelegate:self];
-    
     [intro showInView:rootView animateDuration:0.3];
 }
 @end

@@ -24,12 +24,11 @@ static  NSString const *kVenue = @"venue";
     if (self) {
         _venue = dict[kVenue];
         self.title = self.venue[kTitle];
-        //NSLog(@"%@", self.title);
+
         _location = self.venue[kLocation];
         _coordinate = [self getLatitudeAndLongitude:self.location];
         _placeDetail = [[PlaceDetail alloc] initDetailWithDictionary:dict];
         self.subtitle = self.placeDetail.location.address;
-        NSLog(@"%ld", self.placeDetail.location.distance);
     };
     return self;
 }
