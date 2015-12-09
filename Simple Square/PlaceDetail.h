@@ -10,7 +10,7 @@
 #import <JSONModel/JSONModel.h>
 
 
-@interface PlaceDetail : JSONModel
+@interface PlaceDetail : NSObject
 
 @property (assign, nonatomic) long distance;
 @property (readonly, nonatomic) NSString* address;
