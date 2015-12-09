@@ -40,7 +40,6 @@ const static NSString *section = @"food";
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
         // Create request
-    
         NSString *llParameter = [NSString stringWithFormat:@"%f,%f", self.currentLocation.coordinate.latitude, self.currentLocation.coordinate.longitude];
         NSDictionary* URLParameters = @{
                                         @"client_id":clientID,
@@ -76,7 +75,7 @@ const static NSString *section = @"food";
     NSDictionary* itemDictionary = [[NSDictionary alloc] initWithDictionary:json[0]];
     NSArray* jsonItem = [[NSArray alloc] initWithObjects:itemDictionary[@"items"], nil];
     NSArray* venues = [[NSArray alloc] initWithArray:jsonItem[0]];
-    venues != nil?NSLog(@"✅ Parsed json successfully "):NSLog(@"⁉️ Error can't parsed json");
+    venues != nil ? NSLog(@"✅ Parsed json successfully "):NSLog(@"⁉️ Error can't parsed json");
     [self parsedJsonToArray:venues];
 }
 
