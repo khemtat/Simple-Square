@@ -206,4 +206,8 @@
     [intro setDelegate:self];
     [intro showInView:rootView animateDuration:0.3];
 }
+
+- (void)introDidFinish:(EAIntroView *)introView {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
 @end
