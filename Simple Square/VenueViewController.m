@@ -8,6 +8,7 @@
 
 #import "VenueViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "KLCPopup.h"
 
 @interface VenueViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *placeLabel;
