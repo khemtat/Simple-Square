@@ -14,6 +14,7 @@
 #import "Place.h"
 #import <EAIntroView/EAIntroView.h>
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "VenueViewController.h"
 
 
 @interface MapViewController ()
@@ -26,6 +27,7 @@
     UIView *rootView;
     EAIntroView *_intro;
     Places *places;
+    Place *place;
     CLLocationManager *locationManager;
     CLLocation *currentLocation;
 }
@@ -34,14 +36,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupView];
+    [self setupViewApperance];
     [self setupIntroView];
     [self setupLoadingState];
     [self locationManagerSetup];
 }
 
-- (void) setupView {
-    self.title = @"Cafe Recommended";
+- (void) setupViewApperance {
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.00 green:0.70 blue:0.99 alpha:1.0];
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
@@ -147,6 +148,7 @@
     if (annotation == mapView.userLocation)
         return nil;
     double distanceInKM = ((double)((Place *)annotation).placeDetail.distance)/1000.0;
+    place.placeDetail.distance = distanceInKM;
     MKAnnotationView *view = (MKAnnotationView* )[self.mapView
                                 dequeueReusableAnnotationViewWithIdentifier:@"Place"];
     view = [[MKAnnotationView alloc] initWithAnnotation:annotation
@@ -181,13 +183,15 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view
                       calloutAccessoryControlTapped:(UIControl *)control {
-    Place *place = (Place *)view.annotation;
-    NSURL *URL = [NSURL URLWithString:
-                  [NSString stringWithFormat:@"http://maps.apple.com/?daddr=%f,%f",
-                   place.coordinate.latitude,
-                   place.coordinate.longitude
-                   ]];
-    [[UIApplication sharedApplication] openURL:URL];
+    place = (Place *)view.annotation;
+    [self performSegueWithIdentifier:@"showVenueViewController" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showVenueViewController"]) {
+        VenueViewController *viewController = segue.destinationViewController;
+        viewController.place = place;
+    }
 }
 
 #pragma mark - Intro View
