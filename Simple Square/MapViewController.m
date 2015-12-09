@@ -146,7 +146,7 @@
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
     if (annotation == mapView.userLocation)
         return nil;
-    double distanceInKM = ((double)((Place *)annotation).placeDetail.location.distance)/1000.0;
+    double distanceInKM = ((double)((Place *)annotation).placeDetail.distance)/1000.0;
     MKAnnotationView *view = (MKAnnotationView* )[self.mapView
                                 dequeueReusableAnnotationViewWithIdentifier:@"Place"];
     view = [[MKAnnotationView alloc] initWithAnnotation:annotation

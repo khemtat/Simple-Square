@@ -8,16 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <JSONModel/JSONModel.h>
-#import "LocationDetail.h"
-#import "Categories.h"
-#import "Photo.h"
+
 
 @interface PlaceDetail : JSONModel
 
-@property (readonly, nonatomic) LocationDetail *location;
-@property (readonly, nonatomic) Categories *categories;
-@property (readonly, nonatomic) Photo *photos;
-@property (readonly, nonatomic) NSDictionary* venue;
+@property (assign, nonatomic) long distance;
+@property (readonly, nonatomic) NSString* address;
 
 -(id)initDetailWithDictionary:(NSDictionary *) dict;
 

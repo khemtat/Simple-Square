@@ -7,26 +7,24 @@
 //
 
 #import "PlaceDetail.h"
-#import "LocationDetail.h"
-#import "Photo.h"
-#import "Categories.h"
 
-static const NSString* kLocationDetail = @"location";
-static const NSString* kCategories = @"categories";
-static const NSString* kPhoto = @"photos";
+
+static const NSString* kLocation = @"location";
 static const NSString* kVenue = @"venue";
+static const NSString* kdistance = @"distance";
+static const NSString* kaddress = @"address";
 
 @implementation PlaceDetail
 
 -(id)initDetailWithDictionary:(NSDictionary *) dict{
     self = [super init];
     if (self) {
-        _venue = dict[kVenue];
-        _location = [[LocationDetail alloc] initLocationDetailWithDictionary:self.venue[kLocationDetail]];
-        _categories = [[Categories alloc] initCategoriesWithArray:self.venue[kCategories]];
-        if (![self.venue[kPhoto] isEqual:nil]) {
-            _photos = [[Photo alloc] initPhotoWithDictionary:self.venue[kPhoto]];
-        }
+        NSDictionary* location = [NSDictionary alloc];
+        NSDictionary* venue = [NSDictionary alloc];
+        venue = dict[kVenue];
+        location = venue[kLocation];
+        self.distance = [location[kdistance] integerValue];
+        _address = location[kaddress];
         
     }
     return self;

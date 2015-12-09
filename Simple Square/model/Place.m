@@ -28,7 +28,7 @@ static  NSString const *kVenue = @"venue";
         _location = self.venue[kLocation];
         _coordinate = [self getLatitudeAndLongitude:self.location];
         _placeDetail = [[PlaceDetail alloc] initDetailWithDictionary:dict];
-        self.subtitle = self.placeDetail.location.address;
+        self.subtitle = self.placeDetail.address;
     };
     return self;
 }
