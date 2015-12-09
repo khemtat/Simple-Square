@@ -49,8 +49,8 @@
 }
 
 - (void) setupLoadingState {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Loading";
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = @"Loading";
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(setupMapView)
                                                  name:@"foursquareDataLoadedNotification"
