@@ -33,6 +33,7 @@
 		6824E0DB1C0F523D00C5C901 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6824E0DA1C0F523D00C5C901 /* MapKit.framework */; };
 		6824E0DD1C0F524F00C5C901 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6824E0DC1C0F524F00C5C901 /* CoreLocation.framework */; };
 		68646B4E1C0F6D2A00AD98FE /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 68646B4D1C0F6D2A00AD98FE /* Place.m */; };
+		68C6C7171C1813CF00D56C5A /* KLCPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C6C7161C1813CF00D56C5A /* KLCPopup.m */; };
 		68FBFE471C17F8E200BD848D /* VenueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FBFE461C17F8E200BD848D /* VenueViewController.m */; };
 		68FF901A1C1380480021AAC4 /* PlaceDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FF90191C1380480021AAC4 /* PlaceDetail.m */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,8 @@
 		6824E0DC1C0F524F00C5C901 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		68646B4C1C0F6D2A00AD98FE /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Place.h; path = model/Place.h; sourceTree = "<group>"; };
 		68646B4D1C0F6D2A00AD98FE /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Place.m; path = model/Place.m; sourceTree = "<group>"; };
+		68C6C7151C1813CF00D56C5A /* KLCPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLCPopup.h; sourceTree = "<group>"; };
+		68C6C7161C1813CF00D56C5A /* KLCPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLCPopup.m; sourceTree = "<group>"; };
 		68FBFE451C17F8E200BD848D /* VenueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueViewController.h; sourceTree = "<group>"; };
 		68FBFE461C17F8E200BD848D /* VenueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueViewController.m; sourceTree = "<group>"; };
 		68FF90181C1380480021AAC4 /* PlaceDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetail.h; sourceTree = "<group>"; };
@@ -163,6 +166,7 @@
 		6824E0DE1C0F52BB00C5C901 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				68C6C7141C1813CF00D56C5A /* KLCPopup */,
 				6824E0DC1C0F524F00C5C901 /* CoreLocation.framework */,
 				6824E0DA1C0F523D00C5C901 /* MapKit.framework */,
 				3195883F772C58BA12646BF5 /* libPods-Simple Square.a */,
@@ -189,6 +193,15 @@
 				685094441C1455E800EF4DED /* subclasses Place */,
 			);
 			name = model;
+			sourceTree = "<group>";
+		};
+		68C6C7141C1813CF00D56C5A /* KLCPopup */ = {
+			isa = PBXGroup;
+			children = (
+				68C6C7151C1813CF00D56C5A /* KLCPopup.h */,
+				68C6C7161C1813CF00D56C5A /* KLCPopup.m */,
+			);
+			path = KLCPopup;
 			sourceTree = "<group>";
 		};
 		86CC6EE534F1502FF66F0F5C /* Pods */ = {
@@ -340,6 +353,7 @@
 				3F0D66121C0FEAEA008B5641 /* Places.m in Sources */,
 				6824E0C81C0F520B00C5C901 /* AppDelegate.m in Sources */,
 				3F0D660B1C0FE5FC008B5641 /* MapViewController.m in Sources */,
+				68C6C7171C1813CF00D56C5A /* KLCPopup.m in Sources */,
 				68FF901A1C1380480021AAC4 /* PlaceDetail.m in Sources */,
 				68FBFE471C17F8E200BD848D /* VenueViewController.m in Sources */,
 				6824E0C51C0F520B00C5C901 /* main.m in Sources */,
