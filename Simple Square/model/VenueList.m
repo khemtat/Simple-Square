@@ -1,13 +1,13 @@
 //
-//  Places.m
+//  VenueList.m
 //  Simple Square
 //
 //  Created by Khemtat Lengpaiboon on 12/3/15.
 //  Copyright © 2015 404 App not found. All rights reserved.
 //
 
-#import "Places.h"
-#import "Place.h"
+#import "VenueList.h"
+#import "venue.h"
 #import <Foundation/Foundation.h>
 #import <AFNetworking.h>
 
@@ -16,8 +16,8 @@ const static NSString *clientSecret = @"X00LW15CHQKBSLNJGGQ4XFHQ24CK0VMZW5TZ5EQY
 const static NSString *APIRequestVersion = @"20151203";
 const static NSString *section = @"food";
 
-@implementation Places {
-    NSArray* placeList;
+@implementation VenueList {
+    NSArray* venueList;
 }
 
 + (id)defaultDataWithCurrentLocation:(CLLocation *)location {
@@ -28,12 +28,12 @@ const static NSString *section = @"food";
     self = [super init];
     if (self) {
         self.currentLocation = location;
-        [self sendRequestPlacesData:self];
+        [self sendRequestVenueListData:self];
     }
     return self;
 }
 
-- (void)sendRequestPlacesData:(id)sender {
+- (void)sendRequestVenueListData:(id)sender {
         // My API (GET https://api.foursquare.com/v2/venues/explore)
     
         // Create manager
@@ -63,7 +63,7 @@ const static NSString *section = @"food";
                                                      NSLog(@"⁉️ HTTP Request failed: %@", error);
                                                  }];
             [manager.operationQueue addOperation:operation];
-            NSLog(@"✅ Send request places data successfully!!");
+            NSLog(@"✅ Send request VenueList data successfully!!");
 }
 
 - (void)parsedToJson:(id) responseObject {
@@ -83,24 +83,24 @@ const static NSString *section = @"food";
     NSMutableArray *tempArray = [[NSMutableArray alloc] initWithCapacity:venues.count];
     NSLog(@"✅ json.count = %ld", venues.count);
     for (NSDictionary *dict in venues) {
-        [tempArray addObject:[[Place alloc] initWithDictionary:dict]];
+        [tempArray addObject:[[Venue alloc] initWithDictionary:dict]];
     }
-    placeList = [[NSArray alloc] initWithArray:tempArray];
+    venueList = [[NSArray alloc] initWithArray:tempArray];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"foursquareDataLoadedNotification"
                                                         object:nil];
-    NSLog(@"✅ Parsed json to places array successfully!!");
+    NSLog(@"✅ Parsed json to VenueList array successfully!!");
 }
 
 
-- (Place *) placeAtIndex:(NSUInteger)index {
-    return [placeList objectAtIndex:index];
+- (Venue *) venueAtIndex:(NSUInteger)index {
+    return [venueList objectAtIndex:index];
 }
 
 - (NSUInteger) count {
-    return placeList.count;
+    return venueList.count;
 }
 
-- (NSArray *) getPlaceList {
-    return placeList;
+- (NSArray *) getVenueList {
+    return venueList;
 }
 @end

@@ -1,5 +1,5 @@
 //
-//  Places.h
+//  VenueList.h
 //  Simple Square
 //
 //  Created by Khemtat Lengpaiboon on 12/3/15.
@@ -7,15 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Place.h"
+#import "venue.h"
 
-@interface Places : NSObject
-
+@interface VenueList : NSObject
 @property (strong,nonatomic) CLLocation *currentLocation;
 @property (readonly) NSUInteger count;
 
 + (id)defaultDataWithCurrentLocation:(CLLocation *)location;
-- (Place *) placeAtIndex:(NSUInteger)index;
-- (NSArray *) getPlaceList;
+- (Venue *) venueAtIndex:(NSUInteger)index;
+- (NSArray *) getVenueList;
 
 @end
