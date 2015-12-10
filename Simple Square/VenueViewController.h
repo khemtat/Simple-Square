@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Place.h"
+#import "Venue.h"
 
 @interface VenueViewController : UIViewController
-@property (strong,nonatomic) Place *place;
+@property (strong,nonatomic) Venue *venue;
 @end

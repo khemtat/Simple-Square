@@ -10,7 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface VenueViewController ()
-@property (strong, nonatomic) IBOutlet UILabel *placeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *venueLabel;
 @property (strong, nonatomic) IBOutlet UILabel *addressLabel;
 @property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (strong, nonatomic) IBOutlet UIButton *directionButton;
@@ -26,10 +26,10 @@
 }
 
 - (void) setupView {
-    self.title = self.place.title;
-    self.placeLabel.text = self.place.title;
-    self.addressLabel.text = self.place.subtitle;
-    float distance = self.place.placeDetail.distance/1000.0;
+    self.title = self.venue.title;
+    self.venueLabel.text = self.venue.title;
+    self.addressLabel.text = self.venue.subtitle;
+    float distance = self.venue.VenueDetail.distance/1000.0;
     self.distanceLabel.text = [NSString stringWithFormat:@"%.2f Km.",distance];
 }
 
@@ -46,8 +46,8 @@
 - (IBAction)directionButtonTapped:(id)sender {
         NSURL *URL = [NSURL URLWithString:
                       [NSString stringWithFormat:@"http://maps.apple.com/?daddr=%f,%f",
-                       self.place.coordinate.latitude,
-                       self.place.coordinate.longitude
+                       self.venue.coordinate.latitude,
+                       self.venue.coordinate.longitude
                        ]];
         [[UIApplication sharedApplication] openURL:URL];
 }
