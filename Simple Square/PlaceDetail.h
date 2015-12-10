@@ -1,5 +1,5 @@
 //
-//  Venue.h
+//  PlaceDetail.h
 //  Simple Square
 //
 //  Created by Khemtat Lengpaiboon on 12/6/2558 BE.

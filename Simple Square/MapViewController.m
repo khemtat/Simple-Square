@@ -25,7 +25,6 @@
 
 @implementation MapViewController {
     UIView *rootView;
-    EAIntroView *_intro;
     Places *places;
     Place *place;
     CLLocationManager *locationManager;

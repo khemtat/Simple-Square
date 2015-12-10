@@ -1,5 +1,5 @@
 //
-//  Venue.m
+//  PlaceDetail.m
 //  Simple Square
 //
 //  Created by Khemtat Lengpaiboon on 12/6/2558 BE.
@@ -19,10 +19,8 @@ static const NSString* kaddress = @"address";
 -(id)initDetailWithDictionary:(NSDictionary *) dict{
     self = [super init];
     if (self) {
-        NSDictionary* location = [NSDictionary alloc];
-        NSDictionary* venue = [NSDictionary alloc];
-        venue = dict[kVenue];
-        location = venue[kLocation];
+        NSDictionary* venue = dict[kVenue];
+        NSDictionary* location = venue[kLocation];
         self.distance = [location[kdistance] integerValue];
         _address = location[kaddress];
         
