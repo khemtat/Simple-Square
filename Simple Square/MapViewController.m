@@ -10,8 +10,8 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <Foundation/Foundation.h>
-#import "Places.h"
-#import "Place.h"
+#import "VenueList.h"
+#import "Venue.h"
 #import <EAIntroView/EAIntroView.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 #import "VenueViewController.h"
@@ -25,8 +25,8 @@
 
 @implementation MapViewController {
     UIView *rootView;
-    Places *places;
-    Place *place;
+    VenueList *venueList;
+    Venue *venue;
     CLLocationManager *locationManager;
     CLLocation *currentLocation;
 }
@@ -110,7 +110,7 @@
     currentLocation = locations[0];
     double latitude = currentLocation.coordinate.latitude;
     double longitude = currentLocation.coordinate.longitude;
-    places = [Places defaultDataWithCurrentLocation:currentLocation];
+    venueList = [VenueList defaultDataWithCurrentLocation:currentLocation];
     [locationManager stopUpdatingLocation];
     locationManager = nil;
     self.mapView.showsUserLocation = YES;
@@ -120,8 +120,8 @@
 #pragma mark - Map View configure
 
 - (void)setupMapView{
-    NSLog(@"⚠️ [places count] from MapViewController: %ld",[places count]);
-    [self.mapView addAnnotations:[places getPlaceList]];
+    NSLog(@"⚠️ [venueList count] from MapViewController: %ld",[venueList count]);
+    [self.mapView addAnnotations:[venueList getVenueList]];
     [self mapViewEnclosedAnnotationsIncludeUserLocation];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     NSLog(@"Ⓜ️ Add annotations successfully!!");
@@ -146,12 +146,12 @@
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
     if (annotation == mapView.userLocation)
         return nil;
-    double distanceInKM = ((double)((Place *)annotation).placeDetail.distance)/1000.0;
-    place.placeDetail.distance = distanceInKM;
+    double distanceInKM = ((double)((Venue *)annotation).VenueDetail.distance)/1000.0;
+    venue.VenueDetail.distance = distanceInKM;
     MKAnnotationView *view = (MKAnnotationView* )[self.mapView
-                                dequeueReusableAnnotationViewWithIdentifier:@"Place"];
+                                dequeueReusableAnnotationViewWithIdentifier:@"venue"];
     view = [[MKAnnotationView alloc] initWithAnnotation:annotation
-                                    reuseIdentifier:@"Place"];
+                                    reuseIdentifier:@"venue"];
     [self setupCallout:view andDistance:distanceInKM];
     return view;
 }
@@ -182,14 +182,14 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view
                       calloutAccessoryControlTapped:(UIControl *)control {
-    place = (Place *)view.annotation;
+    venue = (Venue *)view.annotation;
     [self performSegueWithIdentifier:@"showVenueViewController" sender:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showVenueViewController"]) {
         VenueViewController *viewController = segue.destinationViewController;
-        viewController.place = place;
+        viewController.venue = venue;
     }
 }
 
@@ -198,7 +198,7 @@
 - (void)showIntroWithCrossDissolve {
     EAIntroPage *page1 = [EAIntroPage page];
     page1.title = @"Welcome !!";
-    page1.desc = @"Simple Square is a quick way to explore food places, cafe and restaurants\ngo and find some places :)";
+    page1.desc = @"Simple Square is a quick way to explore food venueList, cafe and restaurants\ngo and find some venueList :)";
     page1.bgImage = [UIImage imageNamed:@"bg1"];
     page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"restaurant"]];
     EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1]];
