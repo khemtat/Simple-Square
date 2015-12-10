@@ -52,7 +52,7 @@
                                     <action selector="directionButtonTapped:" destination="QXZ-j5-3gm" eventType="touchUpInside" id="kKP-QZ-dkQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Place name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeU-v1-diM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Venue name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeU-v1-diM" userLabel="Venue Label">
                                 <rect key="frame" x="20" y="116" width="341" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -98,7 +98,7 @@
                         <outlet property="addressLabel" destination="AjR-iO-mtS" id="Qcf-gz-Dzp"/>
                         <outlet property="directionButton" destination="94L-Ob-Rig" id="Puy-L2-9ek"/>
                         <outlet property="distanceLabel" destination="SCu-6P-p7r" id="Ute-hI-vFw"/>
-                        <outlet property="placeLabel" destination="SeU-v1-diM" id="cgE-s2-d9B"/>
+                        <outlet property="venueLabel" destination="SeU-v1-diM" id="pDA-tJ-lxf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xoY-Bx-N9T" userLabel="First Responder" sceneMemberID="firstResponder"/>
