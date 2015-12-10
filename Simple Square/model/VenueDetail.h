@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface VenueDetail : NSObject
-
+@property (assign, nonatomic) long distance;
+@property (readonly, nonatomic) NSString* address;
+-(id)initWithDictionary:(NSDictionary *) dict;
 @end

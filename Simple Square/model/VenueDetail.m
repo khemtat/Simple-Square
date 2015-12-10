@@ -8,6 +8,24 @@
 
 #import "VenueDetail.h"
 
-@implementation VenueDetail
+static const NSString* kLocation = @"location";
+static const NSString* kVenue = @"venue";
+static const NSString* kdistance = @"distance";
+static const NSString* kaddress = @"address";
 
+@interface VenueDetail()
+@property (readwrite) NSString* address;
+@end
+
+@implementation VenueDetail
+-(id)initWithDictionary:(NSDictionary *) dict{
+    self = [super init];
+    if (self) {
+        NSDictionary* venue = dict[kVenue];
+        NSDictionary* location = venue[kLocation];
+        self.distance = [location[kdistance] integerValue];
+        self.address = location[kaddress];
+    }
+    return self;
+}
 @end
