@@ -17,16 +17,23 @@ static  NSString const *kLongitude = @"lng";
 static  NSString const *kVenueDetail = @"VenueDetail";
 static  NSString const *kVenue = @"venue";
 
+@interface Venue()
+@property (nonatomic, readwrite) CLLocationCoordinate2D coordinate;
+@property (nonatomic, readwrite) VenueDetail* VenueDetail;
+@property (nonatomic, readwrite) NSDictionary* venue;
+@property (nonatomic, readwrite) NSDictionary* location;
+@end
+
 @implementation Venue
 
 - (id)initWithDictionary:(NSDictionary *)dict{
     self = [super init];
     if (self) {
-        _venue = dict[kVenue];
+        self.venue = dict[kVenue];
         self.title = self.venue[kTitle];
-        _location = self.venue[kLocation];
-        _coordinate = [self getLatitudeAndLongitude:self.location];
-        _VenueDetail = [[VenueDetail alloc] initWithDictionary:dict];
+        self.location = self.venue[kLocation];
+        self.coordinate = [self getLatitudeAndLongitude:self.location];
+        self.VenueDetail = [[VenueDetail alloc] initWithDictionary:dict];
         self.subtitle = self.VenueDetail.address;
     };
     return self;

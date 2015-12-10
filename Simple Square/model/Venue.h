@@ -1,5 +1,5 @@
 //
-//  Place.h
+//  Venue.h
 //  Simple Square
 //
 //  Created by Khemtat Lengpaiboon on 12/3/2558 BE.
@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import "PlaceDetail.h"
+#import "VenueDetail.h"
 
-@interface Place : NSObject <MKAnnotation>
+@interface Venue : NSObject <MKAnnotation>
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *subtitle;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
-@property (nonatomic, readonly) PlaceDetail* placeDetail;
+@property (nonatomic, readonly) VenueDetail* VenueDetail;
 @property (nonatomic, readonly) NSDictionary* venue;
 @property (nonatomic, readonly) NSDictionary* location;
 
